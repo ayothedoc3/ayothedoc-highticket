@@ -3,7 +3,6 @@ import { createServer } from "http";
 import path from "path";
 
 // Import routes
-import businessAuditRouter from "./routes/business-audit.js";
 import blogRouter from "./routes/blog.js";
 
 async function startServer() {
@@ -31,7 +30,6 @@ async function startServer() {
   });
 
   // API Routes
-  app.use("/api/business-audit", businessAuditRouter);
   app.use("/api/blog", blogRouter);
 
   // Health check endpoint
@@ -60,7 +58,6 @@ async function startServer() {
   server.listen(port, () => {
     console.log(`Server running on http://localhost:${port}/`);
     console.log(`API endpoints:`);
-    console.log(`  - POST /api/business-audit`);
     console.log(`  - GET  /api/blog`);
     console.log(`  - GET  /api/blog/:slug`);
     console.log(`  - GET  /api/blog/categories`);
