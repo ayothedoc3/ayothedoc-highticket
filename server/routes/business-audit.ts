@@ -13,7 +13,15 @@ const __dirname = path.dirname(__filename)
 const router = Router()
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || '')
-const resend = new Resend(process.env.RESEND_API_KEY)
+// Lazy initialize Resend only when needed and API key is present
+const getResend = () => {
+  const apiKey = process.env.RESEND_API_KEY
+  if (!apiKey) {
+    console.warn('RESEND_API_KEY not set - email sending disabled')
+    return null
+  }
+  return new Resend(apiKey)
+}
 
 // Function to save user data for lead collection
 async function saveUserData(userData: any) {
@@ -270,6 +278,15 @@ router.post('/', async (req: Request, res: Response) => {
     }
 
     try {
+      const resend = getResend()
+      if (!resend) {
+        console.log('Email sending skipped - RESEND_API_KEY not configured')
+        return res.json({
+          success: true,
+          report: formattedReport,
+          message: 'Audit generated (email delivery not configured)'
+        })
+      }
       const { data, error } = await resend.emails.send({
         from: 'Ayothedoc Business Audit <onboarding@resend.dev>',
         to: [email],
