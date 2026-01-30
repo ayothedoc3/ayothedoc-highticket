@@ -1,14 +1,10 @@
 import express from "express";
 import { createServer } from "http";
 import path from "path";
-import { fileURLToPath } from "url";
 
 // Import routes
 import businessAuditRouter from "./routes/business-audit.js";
 import blogRouter from "./routes/blog.js";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 async function startServer() {
   const app = express();
@@ -43,11 +39,10 @@ async function startServer() {
     res.json({ status: "ok", timestamp: new Date().toISOString() });
   });
 
-  // Serve static files from dist/public in production
-  const staticPath =
-    process.env.NODE_ENV === "production"
-      ? path.resolve(__dirname, "public")
-      : path.resolve(__dirname, "..", "dist", "public");
+  // Serve static files from dist/public
+  // When running with tsx, __dirname is the server/ folder
+  // The static files are in dist/public relative to project root
+  const staticPath = path.resolve(process.cwd(), "dist", "public");
 
   app.use(express.static(staticPath));
 
