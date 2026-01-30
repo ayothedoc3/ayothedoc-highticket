@@ -24,5 +24,5 @@ ENV PORT=3000
 # Expose port
 EXPOSE 3000
 
-# Start the server with tsx
-CMD ["pnpm", "start"]
+# Start the server directly with tsx
+CMD ["./node_modules/.bin/tsx", "server/index.ts"]
