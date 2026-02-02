@@ -107,23 +107,60 @@ export default function Checklist() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!formData.firstName || !formData.email) {
       toast.error("Please fill in your name and email");
       return;
     }
 
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    toast.success("Check your inbox! Your checklist is on its way.", {
-      description: "You'll receive the download link within 2 minutes."
-    });
-    
-    setIsSubmitting(false);
-    setFormData({ firstName: "", email: "", company: "" });
+
+    try {
+      // 1. Store lead in Airtable via API
+      const apiResponse = await fetch('/api/leads', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          firstName: formData.firstName,
+          email: formData.email,
+          company: formData.company,
+          source: 'checklist'
+        })
+      });
+
+      if (!apiResponse.ok) {
+        throw new Error('Failed to save lead');
+      }
+
+      // 2. Send EmailJS notification
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const templateId = import.meta.env.VITE_EMAILJS_CHECKLIST_TEMPLATE_ID || import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+      if (serviceId && templateId && publicKey) {
+        const emailjs = await import("emailjs-com");
+        await emailjs.default.send(serviceId, templateId, {
+          to_name: "Ayothedoc Team",
+          from_name: formData.firstName,
+          from_email: formData.email,
+          company: formData.company || "Not provided",
+          source: "Checklist Download",
+          reply_to: formData.email,
+          timestamp: new Date().toISOString(),
+        }, publicKey);
+      }
+
+      toast.success("Check your inbox! Your checklist is on its way.", {
+        description: "You'll receive the download link within 2 minutes."
+      });
+
+      setFormData({ firstName: "", email: "", company: "" });
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast.error("Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (

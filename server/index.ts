@@ -4,6 +4,7 @@ import path from "path";
 
 // Import routes
 import blogRouter from "./routes/blog.js";
+import leadsRouter from "./routes/leads.js";
 
 async function startServer() {
   const app = express();
@@ -31,6 +32,7 @@ async function startServer() {
 
   // API Routes
   app.use("/api/blog", blogRouter);
+  app.use("/api/leads", leadsRouter);
 
   // Health check endpoint
   app.get("/api/health", (_req, res) => {
@@ -62,6 +64,7 @@ async function startServer() {
     console.log(`  - GET  /api/blog/:slug`);
     console.log(`  - GET  /api/blog/categories`);
     console.log(`  - GET  /api/blog/recent`);
+    console.log(`  - POST /api/leads`);
     console.log(`  - GET  /api/health`);
   });
 }
