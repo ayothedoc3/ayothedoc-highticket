@@ -9,6 +9,8 @@ import Checklist from "./pages/Checklist";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import Contact from "./pages/Contact";
+import Automation from "./pages/Automation";
+import AutomationPlaybook from "./pages/AutomationPlaybook";
 
 
 function Router() {
@@ -18,6 +20,8 @@ function Router() {
       <Route path={"/checklist"} component={Checklist} />
       <Route path={"/blog"} component={Blog} />
       <Route path={"/blog/:slug"} component={BlogPost} />
+      <Route path={"/automation"} component={Automation} />
+      <Route path={"/automation/:slug"} component={AutomationPlaybook} />
       <Route path={"/contact"} component={Contact} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
