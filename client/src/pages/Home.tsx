@@ -7,6 +7,7 @@
 
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { Link } from "wouter";
 import { 
   ArrowRight, 
   Check, 
@@ -94,6 +95,12 @@ function Header() {
           <a href="#faq" className="text-muted-foreground hover:text-foreground transition-colors text-sm">
             FAQ
           </a>
+          <Link href="/blog" className="text-muted-foreground hover:text-foreground transition-colors text-sm">
+            Blog
+          </Link>
+          <Link href="/automation" className="text-muted-foreground hover:text-foreground transition-colors text-sm">
+            Playbooks
+          </Link>
         </nav>
         <a
           href="https://calendly.com/ayothedoc"
@@ -911,12 +918,18 @@ function Footer() {
             © {new Date().getFullYear()} Ayothedoc. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
-            <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Privacy Policy
-            </a>
-            <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Terms of Service
-            </a>
+            <Link href="/blog" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              Blog
+            </Link>
+            <Link href="/automation" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              Playbooks
+            </Link>
+            <Link href="/checklist" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              Free Checklist
+            </Link>
+            <Link href="/contact" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              Contact
+            </Link>
           </div>
         </div>
       </div>
