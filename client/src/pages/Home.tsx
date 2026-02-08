@@ -107,14 +107,14 @@ function Header() {
               View Offer
             </Button>
           </Link>
-          <a href="https://calendly.com/ayothedoc" target="_blank" rel="noopener noreferrer" className="hidden sm:inline-flex">
+          <Link href="/contact" className="hidden sm:inline-flex">
             <Button
               variant="outline"
               className="border-[#a3e635]/40 text-[#a3e635] hover:bg-[#a3e635]/10 font-semibold rounded-full px-5"
             >
-              Book a Call
+              Contact
             </Button>
-          </a>
+          </Link>
         </div>
       </div>
     </header>
@@ -525,16 +525,12 @@ function ValueStackSection() {
             <p className="text-sm text-muted-foreground mb-6">
               One-time investment. No hidden fees. No recurring charges for the core system.
             </p>
-            <a
-              href="https://calendly.com/ayothedoc"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <Link href="/offer">
               <Button className="bg-[#a3e635] hover:bg-[#84cc16] text-black font-bold text-lg px-8 py-6 rounded-full glow-lime w-full sm:w-auto">
-                Apply for the 40-Hour Profit System
+                View Offer & Checkout
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-            </a>
+            </Link>
           </motion.div>
         </motion.div>
       </div>
@@ -664,16 +660,12 @@ function GuaranteeSection() {
           </motion.p>
 
           <motion.div variants={fadeInUp}>
-            <a
-              href="https://calendly.com/ayothedoc"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <Link href="/offer">
               <Button className="bg-[#a3e635] hover:bg-[#84cc16] text-black font-bold text-lg px-8 py-6 rounded-full glow-lime">
-                Apply Risk-Free Today
+                View Offer & Checkout
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-            </a>
+            </Link>
           </motion.div>
         </motion.div>
       </div>
@@ -869,16 +861,12 @@ function FinalCTASection() {
           </motion.p>
 
           <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-            <a
-              href="https://calendly.com/ayothedoc"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <Link href="/offer">
               <Button className="bg-[#a3e635] hover:bg-[#84cc16] text-black font-bold text-lg px-8 py-6 rounded-full glow-lime pulse-cta">
-                Apply for the 40-Hour Profit System
+                View Offer & Checkout
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-            </a>
+            </Link>
           </motion.div>
 
           <motion.div variants={fadeInUp} className="flex flex-wrap justify-center gap-6 text-muted-foreground text-sm">

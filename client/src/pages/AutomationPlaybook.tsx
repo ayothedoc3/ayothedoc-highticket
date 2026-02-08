@@ -235,14 +235,14 @@ export default function AutomationPlaybook() {
           <div className="mt-16 p-8 rounded-2xl bg-gradient-to-br from-lime-400 to-emerald-500 text-gray-950">
             <h2 className="text-2xl font-bold mb-3">Launch this automation with Ayothedoc</h2>
             <p className="text-lg mb-6 max-w-2xl text-gray-800">
-              We build, document, and train your team on this workflow. Book a strategy session to scope deliverables and timeline.
+              We build, document, and train your team on this workflow. Choose a package, check out, and we’ll onboard you fast.
             </p>
             <div className="flex flex-wrap gap-4">
-              <a href="https://calendly.com/ayothedoc" target="_blank" rel="noopener noreferrer">
+              <Link href="/offer">
                 <Button className="bg-gray-950 text-lime-400 hover:bg-gray-800">
-                  Book Your Strategy Call
+                  View Offer & Checkout
                 </Button>
-              </a>
+              </Link>
               <Link href="/contact">
                 <Button variant="outline" className="border-gray-950 text-gray-950 hover:bg-gray-950 hover:text-lime-400">
                   Talk to the team
