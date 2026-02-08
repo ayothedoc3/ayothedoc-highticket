@@ -1,7 +1,9 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { initAnalytics, trackPageView } from "@/lib/analytics";
 import NotFound from "@/pages/NotFound";
-import { Route, Switch } from "wouter";
+import { useEffect } from "react";
+import { Route, Switch, useLocation } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
@@ -11,7 +13,21 @@ import BlogPost from "./pages/BlogPost";
 import Contact from "./pages/Contact";
 import Automation from "./pages/Automation";
 import AutomationPlaybook from "./pages/AutomationPlaybook";
+import Offer from "./pages/Offer";
 
+function AnalyticsListener() {
+  const [location] = useLocation();
+
+  useEffect(() => {
+    initAnalytics();
+  }, []);
+
+  useEffect(() => {
+    trackPageView(location);
+  }, [location]);
+
+  return null;
+}
 
 function Router() {
   return (
@@ -22,6 +38,7 @@ function Router() {
       <Route path={"/blog/:slug"} component={BlogPost} />
       <Route path={"/automation"} component={Automation} />
       <Route path={"/automation/:slug"} component={AutomationPlaybook} />
+      <Route path={"/offer"} component={Offer} />
       <Route path={"/contact"} component={Contact} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
@@ -36,6 +53,7 @@ function App() {
       <ThemeProvider defaultTheme="dark">
         <TooltipProvider>
           <Toaster />
+          <AnalyticsListener />
           <Router />
         </TooltipProvider>
       </ThemeProvider>

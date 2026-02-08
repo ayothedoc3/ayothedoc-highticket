@@ -97,12 +97,19 @@ export default function BlogPost() {
             </div>
             <span className="font-bold text-lg text-lime-400">Ayothedoc</span>
           </Link>
-          <Link href="/blog">
-            <Button variant="outline" size="sm" className="border-lime-400/30 text-lime-400 hover:bg-lime-400/10">
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              Back to Blog
-            </Button>
-          </Link>
+          <div className="flex items-center gap-3">
+            <Link href="/blog">
+              <Button variant="outline" size="sm" className="border-lime-400/30 text-lime-400 hover:bg-lime-400/10">
+                <ArrowLeft className="w-4 h-4 mr-2" />
+                Back to Blog
+              </Button>
+            </Link>
+            <Link href="/offer">
+              <Button size="sm" className="bg-lime-400 text-gray-950 hover:bg-lime-500 font-semibold">
+                View Offer
+              </Button>
+            </Link>
+          </div>
         </div>
       </nav>
 

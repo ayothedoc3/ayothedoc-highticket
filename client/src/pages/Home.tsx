@@ -56,15 +56,11 @@ function StickyCTA() {
       animate={{ y: 0, opacity: 1 }}
       className="fixed bottom-6 right-6 z-50"
     >
-      <a
-        href="https://calendly.com/ayothedoc"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <Link href="/offer">
         <Button className="bg-[#a3e635] hover:bg-[#84cc16] text-black font-semibold px-6 py-3 rounded-full shadow-lg glow-lime pulse-cta">
-          Apply Now <ArrowRight className="ml-2 h-4 w-4" />
+          View Offer <ArrowRight className="ml-2 h-4 w-4" />
         </Button>
-      </a>
+      </Link>
     </motion.div>
   );
 }
@@ -101,16 +97,25 @@ function Header() {
           <Link href="/automation" className="text-muted-foreground hover:text-foreground transition-colors text-sm">
             Playbooks
           </Link>
+          <Link href="/offer" className="text-muted-foreground hover:text-foreground transition-colors text-sm">
+            Offer
+          </Link>
         </nav>
-        <a
-          href="https://calendly.com/ayothedoc"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Button className="bg-[#a3e635] hover:bg-[#84cc16] text-black font-semibold rounded-full px-5">
-            Book a Call
-          </Button>
-        </a>
+        <div className="flex items-center gap-3">
+          <Link href="/offer">
+            <Button className="bg-[#a3e635] hover:bg-[#84cc16] text-black font-semibold rounded-full px-5">
+              View Offer
+            </Button>
+          </Link>
+          <a href="https://calendly.com/ayothedoc" target="_blank" rel="noopener noreferrer" className="hidden sm:inline-flex">
+            <Button
+              variant="outline"
+              className="border-[#a3e635]/40 text-[#a3e635] hover:bg-[#a3e635]/10 font-semibold rounded-full px-5"
+            >
+              Book a Call
+            </Button>
+          </a>
+        </div>
       </div>
     </header>
   );
@@ -168,16 +173,12 @@ function HeroSection() {
 
           {/* CTA Buttons */}
           <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 mb-12">
-            <a
-              href="https://calendly.com/ayothedoc"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <Link href="/offer">
               <Button className="bg-[#a3e635] hover:bg-[#84cc16] text-black font-bold text-lg px-8 py-6 rounded-full glow-lime">
-                Apply for the 40-Hour Profit System
+                View the Offer & Pricing
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-            </a>
+            </Link>
             <a href="#guarantee">
               <Button variant="outline" className="border-[#a3e635]/50 text-[#a3e635] hover:bg-[#a3e635]/10 font-semibold text-lg px-8 py-6 rounded-full">
                 <Shield className="mr-2 h-5 w-5" />
@@ -923,6 +924,9 @@ function Footer() {
             </Link>
             <Link href="/automation" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Playbooks
+            </Link>
+            <Link href="/offer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              Offer
             </Link>
             <Link href="/checklist" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Free Checklist

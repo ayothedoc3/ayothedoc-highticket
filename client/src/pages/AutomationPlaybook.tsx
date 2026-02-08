@@ -141,9 +141,9 @@ export default function AutomationPlaybook() {
                 Contact
               </Button>
             </Link>
-            <Link href="/">
+            <Link href="/offer">
               <Button variant="outline" size="sm" className="border-lime-400/30 text-lime-400 hover:bg-lime-400/10">
-                Get Started
+                View Offer
               </Button>
             </Link>
           </div>

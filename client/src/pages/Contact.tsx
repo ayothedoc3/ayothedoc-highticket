@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { Link } from "wouter";
 import { toast } from "sonner";
+import { trackEvent } from "@/lib/analytics";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -51,16 +52,33 @@ export default function Contact() {
       return;
     }
 
+    trackEvent("lead_submit", { source: "contact" });
     setIsSubmitting(true);
 
-    try {
-      // EmailJS configuration
-      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || "your_service_id";
-      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "your_template_id";
-      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "your_public_key";
+    let leadCaptured = false;
+    let emailSent = false;
 
-      // Dynamic import of emailjs
-      const emailjs = await import("emailjs-com");
+    try {
+      try {
+        const apiResponse = await fetch("/api/leads", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            firstName: formData.firstName,
+            email: formData.email,
+            company: formData.company,
+            source: "contact",
+          }),
+        });
+
+        leadCaptured = apiResponse.ok;
+      } catch (error) {
+        console.warn("Lead capture failed:", error);
+      }
+
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID as string | undefined;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string | undefined;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string | undefined;
 
       const templateParams = {
         to_name: "Ayothedoc Team",
@@ -75,10 +93,26 @@ export default function Contact() {
         timestamp: new Date().toISOString(),
       };
 
-      await emailjs.default.send(serviceId, templateId, templateParams, publicKey);
+      if (serviceId && templateId && publicKey) {
+        const emailjs = await import("emailjs-com");
+        await emailjs.default.send(serviceId, templateId, templateParams, publicKey);
+        emailSent = true;
+      } else {
+        console.warn("EmailJS not configured - skipping email send");
+      }
 
-      toast.success("Message sent successfully!", {
-        description: "We'll get back to you within 24 hours."
+      if (!leadCaptured && !emailSent) {
+        throw new Error("Contact submission failed: no delivery method succeeded");
+      }
+
+      trackEvent("lead_submit_success", {
+        source: "contact",
+        lead_captured: leadCaptured,
+        email_sent: emailSent,
+      });
+
+      toast.success("Message received!", {
+        description: "We'll get back to you within 24 hours.",
       });
 
       setFormData({
@@ -92,7 +126,8 @@ export default function Contact() {
         newsletter: false
       });
     } catch (error) {
-      console.error("Email sending failed:", error);
+      console.error("Contact submission failed:", error);
+      trackEvent("lead_submit_error", { source: "contact" });
       toast.error("Failed to send message", {
         description: "Please try again or contact us directly."
       });
@@ -116,6 +151,11 @@ export default function Contact() {
             <Link href="/blog">
               <Button variant="ghost" size="sm" className="text-gray-400 hover:text-lime-400">
                 Blog
+              </Button>
+            </Link>
+            <Link href="/offer">
+              <Button variant="outline" size="sm" className="border-lime-400/30 text-lime-400 hover:bg-lime-400/10">
+                View Offer
               </Button>
             </Link>
             <Link href="/">
