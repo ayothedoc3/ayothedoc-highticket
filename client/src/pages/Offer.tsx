@@ -9,9 +9,10 @@ import { CheckoutLink } from "@/components/CheckoutLink";
 import { trackEvent } from "@/lib/analytics";
 
 export default function Offer() {
-  const roadmapHref = import.meta.env.VITE_STRIPE_ROADMAP_LINK as string | undefined;
-  const sprintHref = import.meta.env.VITE_STRIPE_SPRINT_LINK as string | undefined;
-  const careHref = import.meta.env.VITE_STRIPE_CARE_LINK as string | undefined;
+  const runtimeStripe = typeof window !== "undefined" ? window.__AY_CONFIG__?.stripe : undefined;
+  const roadmapHref = runtimeStripe?.roadmap || (import.meta.env.VITE_STRIPE_ROADMAP_LINK as string | undefined);
+  const sprintHref = runtimeStripe?.sprint || (import.meta.env.VITE_STRIPE_SPRINT_LINK as string | undefined);
+  const careHref = runtimeStripe?.care || (import.meta.env.VITE_STRIPE_CARE_LINK as string | undefined);
 
   useEffect(() => {
     document.title = "Agency Ops Engine | Ayothedoc";

@@ -3,10 +3,23 @@ declare global {
     dataLayer?: unknown[];
     gtag?: (...args: unknown[]) => void;
     __ay_ga_initialized__?: boolean;
+    __AY_CONFIG__?: {
+      gaMeasurementId?: string;
+      stripe?: {
+        roadmap?: string;
+        sprint?: string;
+        care?: string;
+      };
+    };
   }
 }
 
 function getMeasurementId(): string | undefined {
+  if (typeof window !== "undefined") {
+    const runtimeId = window.__AY_CONFIG__?.gaMeasurementId?.trim();
+    if (runtimeId) return runtimeId;
+  }
+
   const value = (import.meta.env.VITE_GA_MEASUREMENT_ID as string | undefined)?.trim();
   return value || undefined;
 }

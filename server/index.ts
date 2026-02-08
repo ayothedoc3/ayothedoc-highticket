@@ -36,6 +36,23 @@ async function startServer() {
   app.use("/api/leads", leadsRouter);
   app.use("/api/automation", automationRouter);
 
+  // Runtime client config (avoids Vite build-time env limitations)
+  app.get("/config.js", (_req, res) => {
+    res.setHeader("Content-Type", "application/javascript; charset=utf-8");
+    res.setHeader("Cache-Control", "no-store");
+
+    const config = {
+      gaMeasurementId: process.env.VITE_GA_MEASUREMENT_ID || "",
+      stripe: {
+        roadmap: process.env.VITE_STRIPE_ROADMAP_LINK || "",
+        sprint: process.env.VITE_STRIPE_SPRINT_LINK || "",
+        care: process.env.VITE_STRIPE_CARE_LINK || "",
+      },
+    };
+
+    res.send(`window.__AY_CONFIG__ = ${JSON.stringify(config)};`);
+  });
+
   // Health check endpoint
   app.get("/api/health", (_req, res) => {
     res.json({ status: "ok", timestamp: new Date().toISOString() });
