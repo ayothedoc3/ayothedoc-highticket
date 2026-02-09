@@ -172,7 +172,10 @@ export default function Checklist() {
             <div className="w-8 h-8 rounded-lg bg-lime flex items-center justify-center">
               <Zap className="w-5 h-5 text-background" />
             </div>
-            <span className="font-display font-bold text-lg text-lime">Ayothedoc</span>
+            <div className="leading-tight">
+              <div className="font-display font-bold text-lg text-lime">Ayothedoc</div>
+              <div className="text-[11px] text-muted-foreground">Agency ops automation</div>
+            </div>
           </Link>
           <Link href="/">
             <Button variant="outline" size="sm" className="border-lime/30 text-lime hover:bg-lime/10">
@@ -680,13 +683,16 @@ export default function Checklist() {
               <div className="w-8 h-8 rounded-lg bg-lime flex items-center justify-center">
                 <Zap className="w-5 h-5 text-background" />
               </div>
-              <span className="font-display font-bold text-lime">Ayothedoc</span>
+              <div className="leading-tight">
+                <div className="font-display font-bold text-lime">Ayothedoc</div>
+                <div className="text-[11px] text-muted-foreground">Agency ops automation</div>
+              </div>
             </div>
             <p className="text-sm text-muted-foreground">
-              © 2025 Ayothedoc. All rights reserved.
+              © {new Date().getFullYear()} Ayothedoc. All rights reserved.
             </p>
-            <Link href="/" className="text-sm text-lime hover:underline">
-              Want us to do the audit for you? Learn about the 40-Hour Profit System →
+            <Link href="/offer" className="text-sm text-lime hover:underline">
+              Want us to build it for you? See the Agency Ops Engine →
             </Link>
           </div>
         </div>

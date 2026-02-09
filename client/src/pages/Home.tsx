@@ -16,9 +16,7 @@ import {
   Shield, 
   TrendingUp,
   ChevronDown,
-  X,
-  Play,
-  Star
+  X
 } from "lucide-react";
 import { useState, useEffect } from "react";
 
@@ -74,9 +72,14 @@ function Header() {
           <div className="w-8 h-8 rounded-lg bg-[#a3e635] flex items-center justify-center">
             <Zap className="h-5 w-5 text-black" />
           </div>
-          <span className="font-bold text-lg" style={{ fontFamily: 'var(--font-heading)' }}>
-            Ayothedoc
-          </span>
+          <div className="leading-tight">
+            <div className="font-bold text-lg" style={{ fontFamily: 'var(--font-heading)' }}>
+              Ayothedoc
+            </div>
+            <div className="text-[11px] text-muted-foreground">
+              Agency ops automation
+            </div>
+          </div>
         </div>
         <nav className="hidden md:flex items-center gap-8">
           <a href="#problem" className="text-muted-foreground hover:text-foreground transition-colors text-sm">
@@ -171,6 +174,40 @@ function HeroSection() {
             We install an end-to-end ops automation system for agencies—lead intake → onboarding → delivery → reporting—so you can scale without hiring another ops person.{" "}
             <strong className="text-foreground">Guaranteed to free up 40+ hours of manual work in the first 30 days, or we work for free.</strong>
           </motion.p>
+
+          {/* Concrete deliverables */}
+          <motion.div variants={fadeInUp} className="grid gap-4 sm:grid-cols-3 mb-10">
+            {[
+              {
+                title: "Lead-to-Booked",
+                flow: "Form → CRM → follow-up → meeting booked",
+                tools: "CRM + email/SMS + calendar",
+              },
+              {
+                title: "Onboarding-to-Delivery",
+                flow: "Payment → contract → kickoff → project created",
+                tools: "Stripe + docs + ClickUp/Asana",
+              },
+              {
+                title: "Reporting-to-Retention",
+                flow: "Dashboards → client report → alerts → renewals",
+                tools: "Sheets/Looker + Slack + PM",
+              },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="p-5 rounded-2xl bg-card/50 backdrop-blur border border-border"
+              >
+                <div className="text-sm font-semibold" style={{ fontFamily: "var(--font-heading)" }}>
+                  {item.title}
+                </div>
+                <div className="mt-2 text-sm text-muted-foreground">
+                  <span className="text-foreground/90">{item.flow}</span>
+                </div>
+                <div className="mt-2 text-xs text-muted-foreground">{item.tools}</div>
+              </div>
+            ))}
+          </motion.div>
 
           {/* CTA Buttons */}
           <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 mb-12">
@@ -416,9 +453,12 @@ function SolutionSection() {
         >
           <img 
             src="/images/case-study-visual.png" 
-            alt="Automation System Visualization" 
+            alt="Example workflow map deliverable (sanitized)" 
             className="w-full rounded-2xl border border-border shadow-2xl"
           />
+          <p className="text-xs text-muted-foreground mt-3 text-center">
+            Example workflow map we deliver in the Roadmap (sanitized).
+          </p>
         </motion.div>
       </div>
     </section>
@@ -427,35 +467,28 @@ function SolutionSection() {
 
 // Value Stack Section
 function ValueStackSection() {
-  const valueItems = [
+  const deliverables = [
     {
-      title: "4–6 End-to-End Automations",
-      description: "Lead intake, onboarding, delivery updates, and reporting—built on your stack.",
-      value: "$5,000"
+      title: "One track installed end-to-end",
+      description: "Lead-to-Booked, Onboarding-to-Delivery, or Reporting-to-Retention.",
     },
     {
-      title: "Ops Roadmap + Audit",
-      description: "Workflow map + ROI priorities so we build the highest-leverage systems first.",
-      value: "$500"
+      title: "4–6 automations built on your stack",
+      description: "CRM routing, follow-ups, onboarding handoffs, dashboards, and client reporting.",
     },
     {
-      title: "30-Day Managed Care",
-      description: "Full monitoring, bug fixes, and optimization to ensure 100% system stability post-launch.",
-      value: "$1,500"
+      title: "QA + error handling",
+      description: "Retries, alerts, and guardrails so workflows stay reliable as your tools change.",
     },
     {
-      title: "Operational Playbook & Training",
-      description: "Custom documentation and 90-minute training session for seamless team adoption.",
-      value: "$500"
+      title: "SOPs + Loom walkthroughs",
+      description: "Clear documentation so your team can run the system without you.",
     },
     {
-      title: "Priority Support Channel",
-      description: "Direct access to our team via Slack/Discord for any questions or issues.",
-      value: "$500"
-    }
+      title: "Team training + deployment support",
+      description: "Handoff session + support channel while we deploy and stabilize.",
+    },
   ];
-
-  const totalValue = valueItems.reduce((sum, item) => sum + parseInt(item.value.replace(/[^0-9]/g, '')), 0);
 
   return (
     <section className="py-24 bg-secondary/30">
@@ -480,61 +513,82 @@ function ValueStackSection() {
           >
             Everything Included in an Ops Sprint
           </motion.h2>
+          <motion.p variants={fadeInUp} className="text-muted-foreground max-w-2xl mx-auto">
+            This is not “random automations.” It’s a cohesive ops system your agency runs on—installed fast, documented, and handed off.
+          </motion.p>
         </motion.div>
 
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={staggerContainer}
-          className="max-w-3xl mx-auto"
-        >
-          {valueItems.map((item, index) => (
-            <motion.div
-              key={index}
-              variants={fadeInUp}
-              className="flex items-start gap-4 p-6 border-b border-border last:border-b-0"
-            >
-              <div className="w-6 h-6 rounded-full bg-[#a3e635] flex items-center justify-center flex-shrink-0 mt-1">
-                <Check className="h-4 w-4 text-black" />
-              </div>
-              <div className="flex-grow">
-                <h3 className="text-lg font-bold mb-1" style={{ fontFamily: 'var(--font-heading)' }}>
-                  {item.title}
-                </h3>
-                <p className="text-muted-foreground text-sm">
-                  {item.description}
-                </p>
-              </div>
-              <div className="text-right flex-shrink-0">
-                <span className="text-lg font-bold text-[#a3e635]">{item.value}</span>
-                <span className="text-muted-foreground text-sm block">value</span>
-              </div>
-            </motion.div>
-          ))}
-
-          {/* Total Value */}
+        <div className="grid lg:grid-cols-2 gap-10 items-start max-w-5xl mx-auto">
           <motion.div
-            variants={fadeInUp}
-            className="mt-8 p-8 rounded-2xl bg-card border-2 border-[#a3e635]/50 text-center"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={staggerContainer}
+            className="rounded-2xl bg-card/40 border border-border overflow-hidden"
           >
-            <p className="text-muted-foreground mb-2">Total Value:</p>
-            <p className="text-2xl font-bold price-strike mb-4">{"$" + totalValue.toLocaleString()}</p>
-            <p className="text-muted-foreground mb-2">Ops Sprint Investment:</p>
-            <p className="text-5xl font-extrabold text-[#a3e635] mb-4" style={{ fontFamily: 'var(--font-heading)' }}>
-              $7,500
-            </p>
-            <p className="text-sm text-muted-foreground mb-6">
-              One-time investment. No hidden fees. No recurring charges for the core system.
-            </p>
-            <Link href="/offer">
-              <Button className="bg-[#a3e635] hover:bg-[#84cc16] text-black font-bold text-lg px-8 py-6 rounded-full glow-lime w-full sm:w-auto">
-                View Offer & Checkout
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
+            {deliverables.map((item) => (
+              <motion.div key={item.title} variants={fadeInUp} className="flex items-start gap-4 p-6 border-b border-border last:border-b-0">
+                <div className="w-6 h-6 rounded-full bg-[#a3e635] flex items-center justify-center flex-shrink-0 mt-1">
+                  <Check className="h-4 w-4 text-black" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold mb-1" style={{ fontFamily: "var(--font-heading)" }}>
+                    {item.title}
+                  </h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{item.description}</p>
+                </div>
+              </motion.div>
+            ))}
           </motion.div>
-        </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeInUp}
+            className="p-8 rounded-2xl bg-card border-2 border-[#a3e635]/40 text-center"
+          >
+            <p className="text-muted-foreground mb-2">Ops Sprint pricing</p>
+            <p className="text-5xl font-extrabold text-[#a3e635] mb-4" style={{ fontFamily: "var(--font-heading)" }}>
+              $7,500+
+            </p>
+            <p className="text-sm text-muted-foreground mb-8 max-w-md mx-auto">
+              Self-serve checkout on the offer page. Want clarity first? Start with the Roadmap ($499) to lock scope before the Sprint.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <Link href="/offer">
+                <Button className="bg-[#a3e635] hover:bg-[#84cc16] text-black font-bold px-8 py-6 rounded-full glow-lime">
+                  View Offer & Checkout
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
+              <Link href="/contact">
+                <Button
+                  variant="outline"
+                  className="border-[#a3e635]/40 text-[#a3e635] hover:bg-[#a3e635]/10 font-semibold px-8 py-6 rounded-full"
+                >
+                  Ask a question
+                </Button>
+              </Link>
+            </div>
+
+            <div className="mt-8 flex flex-wrap justify-center gap-6 text-xs text-muted-foreground">
+              <div className="flex items-center gap-2">
+                <Shield className="h-4 w-4 text-[#a3e635]" />
+                <span>40-hour guarantee</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Clock className="h-4 w-4 text-[#a3e635]" />
+                <span>Fast implementation</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Zap className="h-4 w-4 text-[#a3e635]" />
+                <span>Done-for-you</span>
+              </div>
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
@@ -556,54 +610,92 @@ function CaseStudySection() {
             variants={fadeInUp}
             className="text-[#a3e635] font-semibold text-sm uppercase tracking-wider"
           >
-            Client Results
+            Proof
           </motion.span>
           <motion.h2 
             variants={fadeInUp}
             className="text-3xl md:text-4xl lg:text-5xl font-bold mt-4 mb-12"
             style={{ fontFamily: 'var(--font-heading)' }}
           >
-            Real Results From Real Businesses
+            A real workflow we install (sanitized)
           </motion.h2>
 
-          {/* Case Study Card */}
-          <motion.div
-            variants={fadeInUp}
-            className="p-8 md:p-12 rounded-2xl bg-card border border-border"
-          >
-            <div className="flex items-center gap-2 mb-6">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="h-5 w-5 fill-[#a3e635] text-[#a3e635]" />
-              ))}
-            </div>
-            
-            <blockquote className="text-xl md:text-2xl font-medium mb-8 leading-relaxed">
-              "Order to ticketing automation cut manual time by <span className="text-[#a3e635]">80 percent</span> in 21 days. We went from spending 30+ hours a week on manual data entry to having everything automated. The ROI was immediate."
-            </blockquote>
+          <motion.div variants={fadeInUp} className="grid gap-8 lg:grid-cols-2 items-start">
+            <div className="p-8 md:p-10 rounded-2xl bg-card border border-border">
+              <div className="text-xs uppercase tracking-wider text-muted-foreground">
+                Example Sprint (client under NDA)
+              </div>
+              <h3 className="text-2xl font-bold mt-3" style={{ fontFamily: "var(--font-heading)" }}>
+                Lead-to-Booked system for an agency
+              </h3>
+              <p className="text-muted-foreground mt-4 leading-relaxed">
+                This is what “done-for-you” means in practice: we connect your tools so every lead gets routed, followed up, and moved into a
+                delivery workflow without manual copy/paste.
+              </p>
 
-            <div className="grid grid-cols-3 gap-6 mb-8">
-              <div className="text-center p-4 rounded-xl bg-secondary/50">
-                <p className="text-3xl font-bold text-[#a3e635]" style={{ fontFamily: 'var(--font-heading)' }}>25 hrs</p>
-                <p className="text-sm text-muted-foreground">Saved per month</p>
+              <div className="mt-8 space-y-4 text-sm text-muted-foreground">
+                {[
+                  "Capture leads from forms + chat + inbound email",
+                  "Create/enrich leads in your CRM and assign owner",
+                  "Send instant follow-up sequences + reminders",
+                  "Create the project + tasks automatically after payment",
+                  "Generate weekly client reports and internal alerts",
+                ].map((item) => (
+                  <div key={item} className="flex items-start gap-3">
+                    <div className="w-6 h-6 rounded-full bg-[#a3e635]/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <Check className="h-4 w-4 text-[#a3e635]" />
+                    </div>
+                    <span>{item}</span>
+                  </div>
+                ))}
               </div>
-              <div className="text-center p-4 rounded-xl bg-secondary/50">
-                <p className="text-3xl font-bold text-[#a3e635]" style={{ fontFamily: 'var(--font-heading)' }}>90%</p>
-                <p className="text-sm text-muted-foreground">Fewer missed follow-ups</p>
-              </div>
-              <div className="text-center p-4 rounded-xl bg-secondary/50">
-                <p className="text-3xl font-bold text-[#a3e635]" style={{ fontFamily: 'var(--font-heading)' }}>21 days</p>
-                <p className="text-sm text-muted-foreground">To full deployment</p>
+
+              <div className="mt-10 flex flex-col sm:flex-row gap-3">
+                <Link href="/offer">
+                  <Button className="bg-[#a3e635] hover:bg-[#84cc16] text-black font-semibold rounded-full px-6">
+                    View Offer & Checkout
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+                <Link href="/contact">
+                  <Button variant="outline" className="border-[#a3e635]/40 text-[#a3e635] hover:bg-[#a3e635]/10 rounded-full px-6">
+                    Request proof pack
+                  </Button>
+                </Link>
               </div>
             </div>
 
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-[#a3e635]/20 flex items-center justify-center">
-                <span className="text-lg font-bold text-[#a3e635]">E</span>
+            <div className="p-8 md:p-10 rounded-2xl bg-card/40 border border-border">
+              <div className="text-xs uppercase tracking-wider text-muted-foreground mb-4">
+                Simple flow (what gets automated)
               </div>
-              <div>
-                <p className="font-semibold">E-commerce Operations Director</p>
-                <p className="text-sm text-muted-foreground">Mid-size retail company</p>
+              <div className="overflow-x-auto">
+                <div className="min-w-[860px] flex items-center gap-3">
+                  {[
+                    { title: "Form / Chat", detail: "Lead captured" },
+                    { title: "CRM", detail: "Enrich + assign" },
+                    { title: "Follow-up", detail: "Email/SMS sequences" },
+                    { title: "Calendar", detail: "Booked call" },
+                    { title: "Stripe", detail: "Payment received" },
+                    { title: "PM Tool", detail: "Project + tasks" },
+                    { title: "Reporting", detail: "Client updates" },
+                  ].map((step, idx, arr) => (
+                    <div key={step.title} className="flex items-center gap-3">
+                      <div className="p-4 rounded-xl bg-secondary/50 border border-border">
+                        <div className="font-semibold">{step.title}</div>
+                        <div className="text-xs text-muted-foreground mt-1">{step.detail}</div>
+                      </div>
+                      {idx < arr.length - 1 && (
+                        <ArrowRight className="h-5 w-5 text-[#a3e635]" />
+                      )}
+                    </div>
+                  ))}
+                </div>
               </div>
+
+              <p className="text-xs text-muted-foreground mt-6">
+                Want screenshots from a stack similar to yours? We’ll share sanitized examples on request.
+              </p>
             </div>
           </motion.div>
         </motion.div>
@@ -906,9 +998,14 @@ function Footer() {
             <div className="w-8 h-8 rounded-lg bg-[#a3e635] flex items-center justify-center">
               <Zap className="h-5 w-5 text-black" />
             </div>
-            <span className="font-bold text-lg" style={{ fontFamily: 'var(--font-heading)' }}>
-              Ayothedoc
-            </span>
+            <div className="leading-tight">
+              <div className="font-bold text-lg" style={{ fontFamily: 'var(--font-heading)' }}>
+                Ayothedoc
+              </div>
+              <div className="text-[11px] text-muted-foreground">
+                Agency ops automation
+              </div>
+            </div>
           </div>
           <p className="text-sm text-muted-foreground">
             © {new Date().getFullYear()} Ayothedoc. All rights reserved.

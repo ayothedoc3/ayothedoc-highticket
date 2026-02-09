@@ -95,7 +95,10 @@ export default function BlogPost() {
             <div className="w-8 h-8 rounded-lg bg-lime-400 flex items-center justify-center">
               <Zap className="w-5 h-5 text-gray-950" />
             </div>
-            <span className="font-bold text-lg text-lime-400">Ayothedoc</span>
+            <div className="leading-tight">
+              <div className="font-bold text-lg text-lime-400">Ayothedoc</div>
+              <div className="text-[11px] text-gray-500">Agency ops automation</div>
+            </div>
           </Link>
           <div className="flex items-center gap-3">
             <Link href="/blog">
@@ -263,7 +266,10 @@ export default function BlogPost() {
               <div className="w-8 h-8 rounded-lg bg-lime-400 flex items-center justify-center">
                 <Zap className="w-5 h-5 text-gray-950" />
               </div>
-              <span className="font-bold text-lime-400">Ayothedoc</span>
+              <div className="leading-tight">
+                <div className="font-bold text-lime-400">Ayothedoc</div>
+                <div className="text-[11px] text-gray-500">Agency ops automation</div>
+              </div>
             </div>
             <p className="text-sm text-gray-500">
               &copy; {new Date().getFullYear()} Ayothedoc. All rights reserved.
