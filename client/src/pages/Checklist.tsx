@@ -215,7 +215,7 @@ export default function Checklist() {
 
               <motion.p variants={fadeInUp} className="text-xl md:text-2xl text-muted-foreground mb-4">
                 Find the Hidden Time-Wasters Costing Your Business{" "}
-                <span className="text-lime font-semibold">€26,000+ Per Year</span>
+                <span className="text-lime font-semibold">$26,000+ Per Year</span>
               </motion.p>
 
               <motion.p variants={fadeInUp} className="text-lg text-muted-foreground mb-8">
@@ -226,7 +226,7 @@ export default function Checklist() {
               <motion.div variants={fadeInUp} className="flex flex-wrap gap-6 mb-8">
                 {[
                   { text: "Used by 150+ businesses", icon: Users },
-                  { text: "Avg. €2,100/month recovered", icon: DollarSign },
+                  { text: "Avg. $2,100/month recovered", icon: DollarSign },
                   { text: "Takes under 30 minutes", icon: Clock }
                 ].map((item, i) => (
                   <div key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
@@ -500,7 +500,7 @@ export default function Checklist() {
                 </h3>
                 <ul className="space-y-4">
                   {[
-                    "You run a business doing €500K-€5M in revenue",
+                    "You run a business doing $500K-$5M in revenue",
                     "Your team spends 10+ hours/week on repetitive tasks",
                     "You've tried automation before but it didn't stick",
                     "You're ready to scale but operations can't keep up",
@@ -608,7 +608,7 @@ export default function Checklist() {
               CREATED BY
             </span>
             <p className="text-muted-foreground">
-              <span className="font-semibold text-foreground">Ayothedoc</span> — We've audited 50+ businesses and implemented automation systems that have collectively saved over 10,000 hours of manual work. This checklist is the exact tool we use in our €500 AI Readiness Audit, now available free.
+              <span className="font-semibold text-foreground">Ayothedoc</span> — We've audited 50+ businesses and implemented automation systems that have collectively saved over 10,000 hours of manual work. This checklist is the exact tool we use in our $500 AI Readiness Audit, now available free.
             </p>
           </motion.div>
         </div>

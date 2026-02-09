@@ -71,8 +71,8 @@ export default function Offer() {
               <span className="text-lime-400">marketing + web/dev agencies</span>
             </h1>
             <p className="text-xl text-gray-400 mt-6 leading-relaxed">
-              Install a repeatable system for lead intake, onboarding, delivery, reporting, and retention—without
-              hiring another ops person.
+              We install an end-to-end ops system: <span className="text-gray-200">lead intake → onboarding → delivery → reporting → retention</span>.
+              No call required to buy—checkout is self-serve.
             </p>
 
             <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
@@ -89,6 +89,28 @@ export default function Offer() {
                 variant="outline"
                 className="border-lime-400/40 text-lime-400 hover:bg-lime-400/10 font-bold text-lg px-8 py-6 rounded-full"
               />
+            </div>
+
+            <div className="mt-10 max-w-4xl mx-auto grid gap-4 md:grid-cols-3 text-left">
+              {[
+                {
+                  title: "Ops Sprint = installed system",
+                  description: "4–6 automations end-to-end + SOPs + team handoff (typically 10 business days).",
+                },
+                {
+                  title: "Roadmap = scoped build plan",
+                  description: "A prioritized workflow map + implementation steps you can execute (or hand to us).",
+                },
+                {
+                  title: "Care Plan = ongoing improvements",
+                  description: "Monitoring, fixes, and monthly improvement hours so your automations don’t rot.",
+                },
+              ].map((item) => (
+                <div key={item.title} className="p-5 rounded-2xl bg-gray-900/30 border border-gray-800/60">
+                  <div className="text-sm font-semibold text-gray-100">{item.title}</div>
+                  <p className="text-sm text-gray-400 mt-2 leading-relaxed">{item.description}</p>
+                </div>
+              ))}
             </div>
 
             <p className="text-sm text-gray-500 mt-6">
@@ -114,13 +136,13 @@ export default function Offer() {
               <div className="text-xs uppercase tracking-[0.2em] text-gray-400">Roadmap</div>
               <h2 className="text-2xl font-semibold mt-3">Automation Audit + Build Plan</h2>
               <p className="text-gray-400 mt-3 leading-relaxed">
-                A scoped plan you can execute internally—or hand to us as a Sprint.
+                Get clarity fast: what to automate, in what order, and what it will save you.
               </p>
               <ul className="mt-6 space-y-3 text-sm text-gray-400">
                 {[
-                  "Prioritized workflow map + quick wins",
-                  "Tool-by-tool implementation steps",
-                  "ROI estimate and timeline",
+                  "Workflow map + ROI-prioritized backlog",
+                  "Tool-by-tool implementation steps (no fluff)",
+                  "Stack recommendations + timeline estimate",
                   "48–72h delivery",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3">
@@ -143,14 +165,15 @@ export default function Offer() {
               <div className="text-xs uppercase tracking-[0.2em] text-lime-400">Most popular</div>
               <h2 className="text-2xl font-semibold mt-3">Agency Ops Sprint</h2>
               <p className="text-gray-400 mt-3 leading-relaxed">
-                We install 4–6 automations end-to-end, train your team, and ship SOPs.
+                We install 4–6 automations end-to-end, train your team, and ship SOPs. Built on your existing stack.
               </p>
               <ul className="mt-6 space-y-3 text-sm text-gray-400">
                 {[
-                  "Lead routing + follow-ups + booked calls",
-                  "Onboarding: contract, invoice, kickoff",
+                  "Lead intake → routing → instant follow-ups",
+                  "Onboarding: contract → invoice → kickoff",
                   "Delivery: PM templates + status updates",
-                  "Reporting: dashboards + client reports",
+                  "Reporting: dashboards + client-ready reports",
+                  "SOPs + Loom walkthrough + handoff",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3">
                     <Check className="w-4 h-4 text-lime-400 mt-0.5" />
@@ -265,6 +288,64 @@ export default function Offer() {
                 <ArrowRight className="w-4 h-4 text-lime-400" />
                 <span>Fast onboarding after payment</span>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* What happens next */}
+        <section className="container mx-auto px-4 mt-14">
+          <div className="max-w-5xl mx-auto p-10 rounded-3xl bg-gray-900/30 border border-gray-800/60">
+            <h2 className="text-3xl md:text-4xl font-bold text-center">What happens after checkout</h2>
+            <p className="text-gray-400 mt-4 leading-relaxed text-center max-w-3xl mx-auto">
+              Self-serve payment first. Then we confirm scope, collect access, and ship the system.
+            </p>
+
+            <div className="mt-10 grid gap-6 md:grid-cols-4">
+              {[
+                {
+                  step: "1",
+                  title: "Pay via Stripe",
+                  description: "Secure checkout. No sales call required.",
+                },
+                {
+                  step: "2",
+                  title: "Quick intake",
+                  description: "You share your stack + goals + current workflow.",
+                },
+                {
+                  step: "3",
+                  title: "Kickoff + build",
+                  description: "We implement, test, and iterate with you async.",
+                },
+                {
+                  step: "4",
+                  title: "Handoff",
+                  description: "SOPs, Loom walkthroughs, and team training.",
+                },
+              ].map((item) => (
+                <div key={item.step} className="p-6 rounded-2xl bg-gray-950/40 border border-gray-800/60">
+                  <div className="text-xs uppercase tracking-[0.2em] text-gray-500">Step {item.step}</div>
+                  <div className="text-lg font-semibold mt-2">{item.title}</div>
+                  <p className="text-sm text-gray-400 mt-2 leading-relaxed">{item.description}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+              <CheckoutLink
+                href={sprintHref}
+                label="Buy Ops Sprint"
+                cta="next_buy_sprint"
+                className="bg-lime-400 text-gray-950 hover:bg-lime-500 font-semibold rounded-full px-10"
+              />
+              <Link href="/contact" onClick={() => trackEvent("cta_click", { cta: "next_contact", destination: "/contact" })}>
+                <Button
+                  variant="outline"
+                  className="rounded-full px-10 border-lime-400/40 text-lime-400 hover:bg-lime-400/10"
+                >
+                  Not sure? Contact us
+                </Button>
+              </Link>
             </div>
           </div>
         </section>

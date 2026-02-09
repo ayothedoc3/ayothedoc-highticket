@@ -148,7 +148,7 @@ function HeroSection() {
           <motion.div variants={fadeInUp} className="mb-6">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#a3e635]/10 border border-[#a3e635]/30 text-[#a3e635] text-sm font-medium">
               <Zap className="h-4 w-4" />
-              For Growing Businesses Ready to Scale
+              For Marketing + Web/Dev Agencies
             </span>
           </motion.div>
 
@@ -158,9 +158,9 @@ function HeroSection() {
             className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6"
             style={{ fontFamily: 'var(--font-heading)' }}
           >
-            The AI & Automation System That{" "}
+            The Agency Ops Engine That{" "}
             <span className="gradient-text">Guarantees 40+ Hours</span>{" "}
-            of Profit-Driving Time Back in 30 Days
+            Back in 30 Days
           </motion.h1>
 
           {/* Subheadline */}
@@ -168,7 +168,8 @@ function HeroSection() {
             variants={fadeInUp}
             className="text-lg md:text-xl text-muted-foreground mb-8 max-w-3xl leading-relaxed"
           >
-            We implement a proprietary, done-for-you AI and automation system to eliminate your biggest operational bottlenecks—<strong className="text-foreground">guaranteed to free up 40+ hours of manual work in the first 30 days, or we work for free.</strong>
+            We install an end-to-end ops automation system for agencies—lead intake → onboarding → delivery → reporting—so you can scale without hiring another ops person.{" "}
+            <strong className="text-foreground">Guaranteed to free up 40+ hours of manual work in the first 30 days, or we work for free.</strong>
           </motion.p>
 
           {/* CTA Buttons */}
@@ -191,7 +192,7 @@ function HeroSection() {
           <motion.div variants={fadeInUp} className="flex flex-wrap items-center gap-6 text-muted-foreground text-sm">
             <div className="flex items-center gap-2">
               <Check className="h-4 w-4 text-[#a3e635]" />
-              <span>No upfront risk</span>
+              <span>Self-serve checkout</span>
             </div>
             <div className="flex items-center gap-2">
               <Check className="h-4 w-4 text-[#a3e635]" />
@@ -262,7 +263,7 @@ function ProblemSection() {
             className="text-3xl md:text-4xl lg:text-5xl font-bold mt-4 mb-6"
             style={{ fontFamily: 'var(--font-heading)' }}
           >
-            Your Business Is Leaking Time and Money
+            Your Agency Is Leaking Time and Money
           </motion.h2>
           <motion.p 
             variants={fadeInUp}
@@ -307,7 +308,8 @@ function ProblemSection() {
           className="mt-16 p-8 rounded-2xl bg-destructive/5 border border-destructive/20 max-w-3xl mx-auto text-center"
         >
           <p className="text-lg text-muted-foreground">
-            <strong className="text-foreground">The cost of inaction:</strong> If your team wastes just 10 hours/week on manual tasks at €50/hour, that's <strong className="text-destructive">€26,000/year</strong> going down the drain—not counting missed opportunities and burned-out employees.
+            <strong className="text-foreground">The cost of inaction:</strong> If your team wastes just 10 hours/week on manual tasks at $50/hour, that's{" "}
+            <strong className="text-destructive">$26,000/year</strong> going down the drain—not counting missed opportunities and burned-out employees.
           </p>
         </motion.div>
       </div>
@@ -349,13 +351,13 @@ function SolutionSection() {
             className="text-3xl md:text-4xl lg:text-5xl font-bold mt-4 mb-6"
             style={{ fontFamily: 'var(--font-heading)' }}
           >
-            Introducing: <span className="gradient-text">The 40-Hour Profit System</span>
+            Introducing: <span className="gradient-text">The Agency Ops Engine</span>
           </motion.h2>
           <motion.p 
             variants={fadeInUp}
             className="text-lg text-muted-foreground"
           >
-            A done-for-you AI and automation implementation that eliminates your biggest time-wasters and gives you back 40+ hours every month—guaranteed.
+            A productized, done-for-you implementation sprint that installs your agency’s lead-to-reporting ops system and gives you back 40+ hours every month—guaranteed.
           </motion.p>
         </motion.div>
 
@@ -370,18 +372,18 @@ function SolutionSection() {
           {[
             {
               step: "01",
-              title: "Discovery & Audit",
-              description: "We analyze your current operations to identify the exact bottlenecks costing you the most time and money."
+              title: "Roadmap (48–72h)",
+              description: "We map your current workflow, pick the highest-leverage automations, and lock the implementation plan."
             },
             {
               step: "02",
-              title: "Custom Build",
-              description: "Our team builds 3-5 high-impact automations tailored to your specific tech stack and workflows."
+              title: "Ops Sprint (10 business days)",
+              description: "We build 4–6 automations end-to-end across one track (Lead-to-Booked, Onboarding, or Reporting)."
             },
             {
               step: "03",
-              title: "Deploy & Optimize",
-              description: "We deploy, test, and optimize your system. You start saving time within 30 days or we work for free."
+              title: "Care Plan (monthly)",
+              description: "We monitor, fix, and improve the system so it stays reliable as your tools and clients change."
             }
           ].map((item, index) => (
             <motion.div
@@ -427,29 +429,29 @@ function SolutionSection() {
 function ValueStackSection() {
   const valueItems = [
     {
-      title: "3-5 High-Impact Automations",
-      description: "Custom-built workflows for lead management, order processing, reporting, and more.",
-      value: "€5,000"
+      title: "4–6 End-to-End Automations",
+      description: "Lead intake, onboarding, delivery updates, and reporting—built on your stack.",
+      value: "$5,000"
     },
     {
-      title: "AI Readiness Audit",
-      description: "Deep-dive analysis of your current stack to pinpoint the exact 40+ hours we will recover.",
-      value: "€500"
+      title: "Ops Roadmap + Audit",
+      description: "Workflow map + ROI priorities so we build the highest-leverage systems first.",
+      value: "$500"
     },
     {
       title: "30-Day Managed Care",
       description: "Full monitoring, bug fixes, and optimization to ensure 100% system stability post-launch.",
-      value: "€1,500"
+      value: "$1,500"
     },
     {
       title: "Operational Playbook & Training",
       description: "Custom documentation and 90-minute training session for seamless team adoption.",
-      value: "€500"
+      value: "$500"
     },
     {
       title: "Priority Support Channel",
       description: "Direct access to our team via Slack/Discord for any questions or issues.",
-      value: "€500"
+      value: "$500"
     }
   ];
 
@@ -476,7 +478,7 @@ function ValueStackSection() {
             className="text-3xl md:text-4xl lg:text-5xl font-bold mt-4 mb-6"
             style={{ fontFamily: 'var(--font-heading)' }}
           >
-            Everything Included in the 40-Hour Profit System
+            Everything Included in an Ops Sprint
           </motion.h2>
         </motion.div>
 
@@ -517,10 +519,10 @@ function ValueStackSection() {
             className="mt-8 p-8 rounded-2xl bg-card border-2 border-[#a3e635]/50 text-center"
           >
             <p className="text-muted-foreground mb-2">Total Value:</p>
-            <p className="text-2xl font-bold price-strike mb-4">€{totalValue.toLocaleString()}</p>
-            <p className="text-muted-foreground mb-2">Your Investment Today:</p>
+            <p className="text-2xl font-bold price-strike mb-4">{"$" + totalValue.toLocaleString()}</p>
+            <p className="text-muted-foreground mb-2">Ops Sprint Investment:</p>
             <p className="text-5xl font-extrabold text-[#a3e635] mb-4" style={{ fontFamily: 'var(--font-heading)' }}>
-              €7,500
+              $7,500
             </p>
             <p className="text-sm text-muted-foreground mb-6">
               One-time investment. No hidden fees. No recurring charges for the core system.
@@ -702,7 +704,7 @@ function ComparisonSection() {
               className="text-3xl md:text-4xl lg:text-5xl font-bold mt-4"
               style={{ fontFamily: 'var(--font-heading)' }}
             >
-              The 40-Hour Profit System vs. Hiring a Freelancer
+              The Ops Sprint vs. Hiring a Freelancer
             </h2>
           </motion.div>
 
@@ -712,7 +714,7 @@ function ComparisonSection() {
           >
             <div className="grid grid-cols-3 bg-secondary/50 p-4 font-semibold">
               <div>Feature</div>
-              <div className="text-center text-[#a3e635]">40-Hour System</div>
+              <div className="text-center text-[#a3e635]">Ops Sprint</div>
               <div className="text-center text-muted-foreground">Freelancer</div>
             </div>
             {comparisons.map((item, index) => (
@@ -755,20 +757,24 @@ function FAQSection() {
 
   const faqs = [
     {
-      question: "What if my business is too small/big for this?",
-      answer: "The 40-Hour Profit System is designed for businesses doing €500K-€10M in annual revenue with at least 3-5 team members. If you're smaller, you might not have enough processes to automate. If you're larger, we can discuss enterprise solutions."
+      question: "Who is this for?",
+      answer:
+        "Best fit: marketing + web/dev agencies doing roughly $20k–$250k/month with 3+ team members. If you're smaller, start with the $499 Roadmap. If you're larger, we can scope a multi-sprint rollout."
     },
     {
       question: "What tools and platforms do you work with?",
-      answer: "We work with most modern business tools including Shopify, WooCommerce, Notion, Google Workspace, Zapier, n8n, Make.com, Airtable, HubSpot, Salesforce, and many more. If you use it, we can probably automate it."
+      answer:
+        "We work with most modern agency stacks: HubSpot, Pipedrive, HighLevel, Airtable, ClickUp, Asana, Slack, Google Workspace, Stripe, QuickBooks, Notion, Zapier, Make.com, n8n, and more."
     },
     {
       question: "How long does implementation take?",
-      answer: "Our standard deployment is 30 days from kickoff to live system. This includes discovery, building, testing, and training. Complex implementations may take longer, which we'll discuss during your application call."
+      answer:
+        "Roadmap: 48–72 hours. Ops Sprint: typically 10 business days for the core build. You should see meaningful time savings within 30 days (or we keep working until you do)."
     },
     {
       question: "What happens after the 30-day managed care period?",
-      answer: "After the initial 30 days, you can continue with our Managed Care plans (€600-€3,000/month) for ongoing monitoring, optimization, and support. Or you can manage the system yourself—we provide full documentation and training."
+      answer:
+        "You can continue on the Care Plan (from $1,500/month) for monitoring, fixes, and improvements—or manage the system yourself. We provide SOPs, Loom walkthroughs, and team training either way."
     },
     {
       question: "What if I'm not satisfied with the results?",
@@ -776,7 +782,8 @@ function FAQSection() {
     },
     {
       question: "How is this different from hiring an automation freelancer?",
-      answer: "Freelancers typically deliver one-off projects without guarantees. We deliver a complete system with guaranteed results, ongoing support, team training, and documentation. Plus, our 30-day deployment timeline is faster than most freelancer engagements."
+      answer:
+        "Freelancers typically deliver one-off projects without strong guardrails. We deliver a system (end-to-end), with a clear scope, team training + SOPs, and a time-savings guarantee."
     }
   ];
 
