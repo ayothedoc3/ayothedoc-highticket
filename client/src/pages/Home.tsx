@@ -377,13 +377,13 @@ function ProofSection() {
             className="text-3xl md:text-4xl lg:text-5xl font-bold mt-4 mb-12"
             style={{ fontFamily: 'var(--font-heading)' }}
           >
-            A real workflow we install (sanitized)
+            What we actually build for agencies
           </motion.h2>
 
           <motion.div variants={fadeInUp} className="grid gap-8 lg:grid-cols-2 items-start">
             <div className="p-8 md:p-10 rounded-2xl bg-card border border-border">
               <div className="text-xs uppercase tracking-wider text-muted-foreground">
-                Example Sprint (client under NDA)
+                Example Ops Sprint
               </div>
               <h3 className="text-2xl font-bold mt-3" style={{ fontFamily: "var(--font-heading)" }}>
                 Lead-to-Booked system for an agency
@@ -412,36 +412,35 @@ function ProofSection() {
             </div>
 
             <div className="p-8 md:p-10 rounded-2xl bg-card/40 border border-border">
-              <div className="text-xs uppercase tracking-wider text-muted-foreground mb-4">
-                Simple flow (what gets automated)
+              <div className="text-xs uppercase tracking-wider text-muted-foreground mb-6">
+                The full flow (what gets automated)
               </div>
-              <div className="overflow-x-auto">
-                <div className="min-w-[860px] flex items-center gap-3">
-                  {[
-                    { title: "Form / Chat", detail: "Lead captured" },
-                    { title: "CRM", detail: "Enrich + assign" },
-                    { title: "Follow-up", detail: "Email/SMS sequences" },
-                    { title: "Calendar", detail: "Booked call" },
-                    { title: "Stripe", detail: "Payment received" },
-                    { title: "PM Tool", detail: "Project + tasks" },
-                    { title: "Reporting", detail: "Client updates" },
-                  ].map((step, idx, arr) => (
-                    <div key={step.title} className="flex items-center gap-3">
-                      <div className="p-4 rounded-xl bg-secondary/50 border border-border">
-                        <div className="font-semibold">{step.title}</div>
-                        <div className="text-xs text-muted-foreground mt-1">{step.detail}</div>
+              <div className="space-y-3">
+                {[
+                  { step: "1", title: "Form / Chat", detail: "Lead captured from website, ads, or referral" },
+                  { step: "2", title: "CRM", detail: "Lead enriched, scored, and assigned to owner" },
+                  { step: "3", title: "Follow-up", detail: "Instant email/SMS sequences sent automatically" },
+                  { step: "4", title: "Calendar", detail: "Discovery call booked without back-and-forth" },
+                  { step: "5", title: "Stripe", detail: "Payment received, invoice generated" },
+                  { step: "6", title: "PM Tool", detail: "Project + tasks created, team notified" },
+                  { step: "7", title: "Reporting", detail: "Weekly client reports + internal alerts" },
+                ].map((step, idx, arr) => (
+                  <div key={step.title}>
+                    <div className="flex items-center gap-4">
+                      <div className="w-8 h-8 rounded-full bg-[#a3e635]/20 flex items-center justify-center flex-shrink-0">
+                        <span className="text-xs font-bold text-[#a3e635]">{step.step}</span>
                       </div>
-                      {idx < arr.length - 1 && (
-                        <ArrowRight className="h-5 w-5 text-[#a3e635]" />
-                      )}
+                      <div className="flex-grow">
+                        <div className="font-semibold text-sm">{step.title}</div>
+                        <div className="text-xs text-muted-foreground">{step.detail}</div>
+                      </div>
                     </div>
-                  ))}
-                </div>
+                    {idx < arr.length - 1 && (
+                      <div className="ml-4 h-3 border-l border-[#a3e635]/30" />
+                    )}
+                  </div>
+                ))}
               </div>
-
-              <p className="text-xs text-muted-foreground mt-6">
-                Want screenshots from a stack similar to yours? We'll share sanitized examples on request.
-              </p>
             </div>
           </motion.div>
         </motion.div>
