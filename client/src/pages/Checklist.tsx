@@ -150,9 +150,17 @@ export default function Checklist() {
         }, publicKey);
       }
 
-      toast.success("Check your inbox! Your checklist is on its way.", {
-        description: "You'll receive the download link within 2 minutes."
+      toast.success("Your checklist is ready!", {
+        description: "The download should start automatically."
       });
+
+      // Trigger the PDF download
+      const link = document.createElement("a");
+      link.href = "/downloads/40-hour-automation-audit-checklist.pdf";
+      link.download = "40-Hour-Automation-Audit-Checklist.pdf";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
 
       setFormData({ firstName: "", email: "", company: "" });
     } catch (error) {
