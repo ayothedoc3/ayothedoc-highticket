@@ -184,24 +184,24 @@ export default function Playbook() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-950 text-gray-100">
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-gray-950/85 backdrop-blur-md border-b border-gray-800/50">
+    <div className="min-h-screen bg-[#0b0d10] text-gray-100">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0b0d10]/90 backdrop-blur-md border-b border-white/10">
         <div className="container mx-auto px-4 flex items-center justify-between h-16">
           <Link href="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-lime-400 flex items-center justify-center">
-              <Zap className="w-5 h-5 text-gray-950" />
+            <div className="w-8 h-8 rounded-lg bg-[#a3e635] flex items-center justify-center">
+              <Zap className="w-5 h-5 text-black" />
             </div>
             <div className="leading-tight">
-              <div className="font-bold text-lg text-lime-400">Ayothedoc</div>
-              <div className="text-[11px] text-gray-500">Agency ops automation</div>
+              <div className="font-bold text-lg text-white">Ayothedoc</div>
+              <div className="text-[11px] text-gray-400">Agency ops automation</div>
             </div>
           </Link>
 
           <div className="hidden md:flex items-center gap-6">
-            <Link href="/offer" className="text-sm text-gray-400 hover:text-lime-400 transition-colors">
+            <Link href="/offer" className="text-sm text-gray-400 hover:text-white transition-colors">
               Offer
             </Link>
-            <Link href="/contact" className="text-sm text-gray-400 hover:text-lime-400 transition-colors">
+            <Link href="/contact" className="text-sm text-gray-400 hover:text-white transition-colors">
               Contact
             </Link>
           </div>
@@ -210,7 +210,7 @@ export default function Playbook() {
             href={sprintHref}
             label="Buy Sprint"
             cta="playbook_nav_buy_sprint"
-            className="bg-lime-400 text-gray-950 hover:bg-lime-500 font-semibold"
+            className="bg-[#a3e635] text-black hover:bg-[#93d225] font-semibold"
             size="sm"
           />
         </div>
@@ -218,32 +218,55 @@ export default function Playbook() {
 
       <main className="pt-28 pb-20">
         <section className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto text-center p-8 md:p-12 rounded-3xl border border-lime-400/20 bg-gradient-to-b from-lime-400/5 to-transparent">
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-lime-400/10 border border-lime-400/30 text-lime-400 text-sm font-semibold uppercase tracking-wider">
-              AI-native agency playbook
-            </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mt-6">
-              Outbound scripts that feed a
-              <span className="text-lime-400"> leverage offer stack</span>
-            </h1>
-            <p className="text-xl text-gray-400 mt-6 max-w-4xl mx-auto leading-relaxed">
-              Copy proven scripts, run outbound with UTM links, and route buyers into Roadmap ($499) or Ops Sprint ($7,500+).
-            </p>
+          <div className="max-w-6xl mx-auto grid lg:grid-cols-[1.15fr_0.85fr] gap-6">
+            <div className="p-8 md:p-12 rounded-3xl border border-white/10 bg-[#11141a]">
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#a3e635]/10 border border-[#a3e635]/30 text-[#a3e635] text-sm font-semibold uppercase tracking-wider">
+                AI-native agency playbook
+              </span>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mt-6">
+                Outbound scripts that feed a
+                <span className="text-[#a3e635]"> leverage offer stack</span>
+              </h1>
+              <p className="text-xl text-gray-400 mt-6 max-w-3xl leading-relaxed">
+                Copy scripts, deploy UTM links, and route buyers into Roadmap ($499) or Ops Sprint ($7,500+) with a clean handoff to checkout.
+              </p>
 
-            <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-              <CheckoutLink
-                href={roadmapHref}
-                label="Start with Roadmap"
-                cta="playbook_hero_buy_roadmap"
-                className="bg-lime-400 text-gray-950 hover:bg-lime-500 font-bold text-lg px-8 py-6 rounded-full"
-              />
-              <CheckoutLink
-                href={sprintHref}
-                label="Buy Ops Sprint"
-                cta="playbook_hero_buy_sprint"
-                variant="outline"
-                className="border-lime-400/40 text-lime-400 hover:bg-lime-400/10 font-bold text-lg px-8 py-6 rounded-full"
-              />
+              <div className="mt-8 flex flex-col sm:flex-row gap-4">
+                <CheckoutLink
+                  href={roadmapHref}
+                  label="Start with Roadmap"
+                  cta="playbook_hero_buy_roadmap"
+                  className="bg-[#a3e635] text-black hover:bg-[#93d225] font-bold text-lg px-8 py-6 rounded-full"
+                />
+                <CheckoutLink
+                  href={sprintHref}
+                  label="Buy Ops Sprint"
+                  cta="playbook_hero_buy_sprint"
+                  variant="outline"
+                  className="border-[#a3e635]/40 text-[#a3e635] hover:bg-[#a3e635]/10 font-bold text-lg px-8 py-6 rounded-full"
+                />
+              </div>
+            </div>
+
+            <div className="p-6 md:p-8 rounded-3xl border border-white/10 bg-[#11141a]">
+              <div className="text-xs uppercase tracking-[0.2em] text-gray-500">Campaign flow</div>
+              <h2 className="text-2xl font-semibold mt-3">How this page makes revenue</h2>
+              <div className="mt-6 space-y-3">
+                {[
+                  "Pick script by channel",
+                  "Send with UTM checkout link",
+                  "Track clicks and lead source",
+                  "Convert to Roadmap or Sprint",
+                ].map((step) => (
+                  <div key={step} className="flex items-start gap-3 p-3 rounded-lg border border-white/10 bg-[#0f1318] text-sm text-gray-300">
+                    <Check className="w-4 h-4 text-[#a3e635] mt-0.5" />
+                    <span>{step}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-6 rounded-lg border border-[#a3e635]/25 bg-[#a3e635]/10 p-4 text-sm text-gray-200">
+                Use this playbook for outbound execution, then close on the self-serve offer page.
+              </div>
             </div>
           </div>
         </section>
@@ -251,7 +274,7 @@ export default function Playbook() {
         <section className="container mx-auto px-4 mt-14">
           <div className="max-w-6xl mx-auto grid gap-6 md:grid-cols-2">
             {scriptTemplates.map((template) => (
-              <div key={template.id} className="p-6 rounded-2xl bg-gray-900/50 border border-gray-800/60">
+              <div key={template.id} className="p-6 rounded-2xl bg-[#11141a] border border-white/10">
                 <div className="flex items-center justify-between gap-3">
                   <div>
                     <div className="text-xs uppercase tracking-[0.2em] text-gray-500">{template.channel}</div>
@@ -260,7 +283,7 @@ export default function Playbook() {
                   <Button
                     variant="outline"
                     size="sm"
-                    className="border-lime-400/30 text-lime-400 hover:bg-lime-400/10"
+                    className="border-[#a3e635]/30 text-[#a3e635] hover:bg-[#a3e635]/10"
                     onClick={() => handleCopy(template)}
                   >
                     <Copy className="w-4 h-4 mr-2" />
@@ -268,7 +291,7 @@ export default function Playbook() {
                   </Button>
                 </div>
 
-                <pre className="mt-4 whitespace-pre-wrap text-xs leading-relaxed text-gray-300 bg-gray-950/60 border border-gray-800 rounded-xl p-4">
+                <pre className="mt-4 whitespace-pre-wrap text-xs leading-relaxed text-gray-300 bg-[#0f1318] border border-white/10 rounded-xl p-4">
 {formatTemplate(template)}
                 </pre>
               </div>
@@ -278,8 +301,8 @@ export default function Playbook() {
 
         <section className="container mx-auto px-4 mt-14">
           <div className="max-w-5xl mx-auto grid gap-6 lg:grid-cols-2">
-            <div className="p-8 rounded-2xl bg-gray-900/40 border border-gray-800/60">
-              <div className="flex items-center gap-2 text-lime-400 text-sm uppercase tracking-[0.2em]">
+            <div className="p-8 rounded-2xl bg-[#11141a] border border-white/10">
+              <div className="flex items-center gap-2 text-[#a3e635] text-sm uppercase tracking-[0.2em]">
                 <Mail className="w-4 h-4" />
                 Tracking setup
               </div>
@@ -287,12 +310,12 @@ export default function Playbook() {
               <p className="text-gray-400 mt-3 leading-relaxed">
                 This link format ties outreach source and script variant to checkout clicks and lead submissions.
               </p>
-              <div className="mt-5 p-4 rounded-xl bg-gray-950/60 border border-gray-800 text-xs break-all text-gray-300">
+              <div className="mt-5 p-4 rounded-xl bg-[#0f1318] border border-white/10 text-xs break-all text-gray-300">
                 {sampleTrackingLink}
               </div>
               <Button
                 variant="outline"
-                className="mt-4 border-lime-400/30 text-lime-400 hover:bg-lime-400/10"
+                className="mt-4 border-[#a3e635]/30 text-[#a3e635] hover:bg-[#a3e635]/10"
                 onClick={copyTrackingLink}
               >
                 <Copy className="w-4 h-4 mr-2" />
@@ -306,15 +329,15 @@ export default function Playbook() {
                   "Set utm_content to hook variant",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3">
-                    <Check className="w-4 h-4 text-lime-400 mt-0.5" />
+                    <Check className="w-4 h-4 text-[#a3e635] mt-0.5" />
                     <span>{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
-            <form onSubmit={handleSubmit} className="p-8 rounded-2xl bg-gray-900/40 border border-gray-800/60">
-              <div className="flex items-center gap-2 text-lime-400 text-sm uppercase tracking-[0.2em]">
+            <form onSubmit={handleSubmit} className="p-8 rounded-2xl bg-[#11141a] border border-white/10">
+              <div className="flex items-center gap-2 text-[#a3e635] text-sm uppercase tracking-[0.2em]">
                 <MessageSquare className="w-4 h-4" />
                 Request teardown
               </div>
@@ -326,33 +349,33 @@ export default function Playbook() {
                   placeholder="First name"
                   value={formData.firstName}
                   onChange={(event) => setFormData((prev) => ({ ...prev, firstName: event.target.value }))}
-                  className="bg-gray-950/60 border-gray-700"
+                  className="bg-[#0f1318] border-white/15"
                 />
                 <Input
                   type="email"
                   placeholder="Work email"
                   value={formData.email}
                   onChange={(event) => setFormData((prev) => ({ ...prev, email: event.target.value }))}
-                  className="bg-gray-950/60 border-gray-700"
+                  className="bg-[#0f1318] border-white/15"
                 />
                 <Input
                   placeholder="Agency name"
                   value={formData.company}
                   onChange={(event) => setFormData((prev) => ({ ...prev, company: event.target.value }))}
-                  className="bg-gray-950/60 border-gray-700"
+                  className="bg-[#0f1318] border-white/15"
                 />
                 <Textarea
                   placeholder="Biggest bottleneck (lead follow-up, onboarding, reporting, etc.)"
                   value={formData.pain}
                   onChange={(event) => setFormData((prev) => ({ ...prev, pain: event.target.value }))}
-                  className="bg-gray-950/60 border-gray-700 min-h-28"
+                  className="bg-[#0f1318] border-white/15 min-h-28"
                 />
               </div>
 
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="mt-5 w-full bg-lime-400 text-gray-950 hover:bg-lime-500 font-semibold"
+                className="mt-5 w-full bg-[#a3e635] text-black hover:bg-[#93d225] font-semibold"
               >
                 {isSubmitting ? "Submitting..." : "Send me the playbook"}
               </Button>
@@ -361,13 +384,13 @@ export default function Playbook() {
         </section>
 
         <section className="container mx-auto px-4 mt-14">
-          <div className="max-w-6xl mx-auto p-8 rounded-2xl border border-gray-800/60 bg-gray-900/30 flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="max-w-6xl mx-auto p-8 rounded-2xl border border-white/10 bg-[#11141a] flex flex-col md:flex-row items-center justify-between gap-4">
             <div>
               <h3 className="text-2xl font-semibold">Ready to turn repeated service work into IP?</h3>
               <p className="text-gray-400 mt-2">Use the scripts to book calls, then convert into Roadmap and Ops Sprint checkouts.</p>
             </div>
             <Link href="/offer">
-              <Button className="bg-lime-400 text-gray-950 hover:bg-lime-500 font-semibold rounded-full px-8">
+              <Button className="bg-[#a3e635] text-black hover:bg-[#93d225] font-semibold rounded-full px-8">
                 Go to Offer
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>

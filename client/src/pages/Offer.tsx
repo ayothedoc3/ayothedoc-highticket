@@ -24,30 +24,30 @@ export default function Offer() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-950 text-gray-100">
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-gray-950/85 backdrop-blur-md border-b border-gray-800/50">
+    <div className="min-h-screen bg-[#0b0d10] text-gray-100">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0b0d10]/90 backdrop-blur-md border-b border-white/10">
         <div className="container mx-auto px-4 flex items-center justify-between h-16">
           <Link href="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-lime-400 flex items-center justify-center">
-              <Zap className="w-5 h-5 text-gray-950" />
+            <div className="w-8 h-8 rounded-lg bg-[#a3e635] flex items-center justify-center">
+              <Zap className="w-5 h-5 text-black" />
             </div>
             <div className="leading-tight">
-              <div className="font-bold text-lg text-lime-400">Ayothedoc</div>
-              <div className="text-[11px] text-gray-500">Agency ops automation</div>
+              <div className="font-bold text-lg text-white">Ayothedoc</div>
+              <div className="text-[11px] text-gray-400">Agency ops automation</div>
             </div>
           </Link>
 
           <div className="hidden md:flex items-center gap-6">
-            <Link href="/automation" className="text-sm text-gray-400 hover:text-lime-400 transition-colors">
+            <Link href="/automation" className="text-sm text-gray-400 hover:text-white transition-colors">
               Playbooks
             </Link>
-            <Link href="/blog" className="text-sm text-gray-400 hover:text-lime-400 transition-colors">
+            <Link href="/blog" className="text-sm text-gray-400 hover:text-white transition-colors">
               Blog
             </Link>
-            <Link href="/playbook" className="text-sm text-gray-400 hover:text-lime-400 transition-colors">
+            <Link href="/playbook" className="text-sm text-gray-400 hover:text-white transition-colors">
               Outbound Playbook
             </Link>
-            <Link href="/contact" className="text-sm text-gray-400 hover:text-lime-400 transition-colors">
+            <Link href="/contact" className="text-sm text-gray-400 hover:text-white transition-colors">
               Contact
             </Link>
           </div>
@@ -56,7 +56,7 @@ export default function Offer() {
             href={sprintHref}
             label="Buy Sprint"
             cta="nav_buy_sprint"
-            className="bg-lime-400 text-gray-950 hover:bg-lime-500 font-semibold"
+            className="bg-[#a3e635] text-black hover:bg-[#93d225] font-semibold"
             size="sm"
           />
         </div>
@@ -64,13 +64,13 @@ export default function Offer() {
 
       <main className="pt-28 pb-20">
         <section className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto text-center rounded-3xl border border-lime-400/20 bg-gradient-to-b from-lime-400/5 to-transparent p-8 md:p-12">
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-lime-400/10 border border-lime-400/30 text-lime-400 text-sm font-semibold tracking-wider uppercase">
+          <div className="max-w-5xl mx-auto text-center rounded-3xl border border-white/10 bg-[#11141a] p-8 md:p-12">
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#a3e635]/10 border border-[#a3e635]/30 text-[#a3e635] text-sm font-semibold tracking-wider uppercase">
               Agency Ops Engine
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mt-6">
               Choose how you want to buy
-              <span className="text-lime-400"> leverage</span>
+              <span className="text-[#a3e635]"> leverage</span>
             </h1>
             <p className="text-xl text-gray-400 mt-6 leading-relaxed max-w-4xl mx-auto">
               We install systems for agencies:{" "}
@@ -83,28 +83,26 @@ export default function Offer() {
                 href={sprintHref}
                 label="Buy Ops Sprint - from $7,500"
                 cta="hero_buy_sprint"
-                className="bg-lime-400 hover:bg-lime-500 text-gray-950 font-bold text-lg px-8 py-6 rounded-full shadow-lg"
+                className="bg-[#a3e635] hover:bg-[#93d225] text-black font-bold text-lg px-8 py-6 rounded-full shadow-lg"
               />
               <CheckoutLink
                 href={roadmapHref}
                 label="Buy Roadmap - $499"
                 cta="hero_buy_roadmap"
                 variant="outline"
-                className="border-lime-400/40 text-lime-400 hover:bg-lime-400/10 font-bold text-lg px-8 py-6 rounded-full"
+                className="border-[#a3e635]/40 text-[#a3e635] hover:bg-[#a3e635]/10 font-bold text-lg px-8 py-6 rounded-full"
               />
             </div>
 
             <p className="text-sm text-gray-500 mt-6">
-              Need a quick fit check first?{" "}
-              <a
-                href="https://calendly.com/ayothedoc"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-lime-400 hover:underline"
-                onClick={() => trackEvent("cta_click", { cta: "offer_hero_book_call", destination: "calendly" })}
+              Need custom scope before checkout?{" "}
+              <Link
+                href="/contact"
+                className="text-[#a3e635] hover:underline"
+                onClick={() => trackEvent("cta_click", { cta: "offer_hero_contact", destination: "/contact" })}
               >
-                Book 15 minutes
-              </a>
+                Send requirements
+              </Link>
               .
             </p>
           </div>
@@ -112,7 +110,7 @@ export default function Offer() {
 
         <section className="container mx-auto px-4 mt-14">
           <div className="grid gap-6 md:grid-cols-3 max-w-6xl mx-auto">
-            <div className="p-8 rounded-2xl bg-gray-900/50 border border-gray-800/60 hover:border-lime-400/40 transition">
+            <div className="p-8 rounded-2xl bg-[#11141a] border border-white/10 hover:border-[#a3e635]/40 transition">
               <div className="text-xs uppercase tracking-[0.2em] text-gray-400">Roadmap</div>
               <h2 className="text-2xl font-semibold mt-3">Scope and prioritize</h2>
               <p className="text-gray-400 mt-3 leading-relaxed">
@@ -126,7 +124,7 @@ export default function Offer() {
                   "Delivered in 48-72 hours",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3">
-                    <Check className="w-4 h-4 text-lime-400 mt-0.5" />
+                    <Check className="w-4 h-4 text-[#a3e635] mt-0.5" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -136,13 +134,13 @@ export default function Offer() {
                   href={roadmapHref}
                   label="Buy Roadmap - $499"
                   cta="card_buy_roadmap"
-                  className="w-full bg-gray-800 text-gray-100 hover:bg-gray-700"
+                  className="w-full bg-[#0f1318] text-gray-100 hover:bg-[#151b23]"
                 />
               </div>
             </div>
 
-            <div className="p-8 rounded-2xl bg-lime-400/10 border border-lime-400/35 hover:border-lime-400/60 transition">
-              <div className="text-xs uppercase tracking-[0.2em] text-lime-400">Most popular</div>
+            <div className="p-8 rounded-2xl bg-[#151a1f] border border-[#a3e635]/35 hover:border-[#a3e635]/60 transition">
+              <div className="text-xs uppercase tracking-[0.2em] text-[#a3e635]">Most popular</div>
               <h2 className="text-2xl font-semibold mt-3">Agency Ops Sprint</h2>
               <p className="text-gray-300 mt-3 leading-relaxed">
                 We implement 4-6 automations end-to-end, train your team, and hand off SOPs.
@@ -156,7 +154,7 @@ export default function Offer() {
                   "Loom walkthrough and team handoff",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3">
-                    <Check className="w-4 h-4 text-lime-300 mt-0.5" />
+                    <Check className="w-4 h-4 text-[#a3e635] mt-0.5" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -166,12 +164,12 @@ export default function Offer() {
                   href={sprintHref}
                   label="Buy Ops Sprint - from $7,500"
                   cta="card_buy_sprint"
-                  className="w-full bg-lime-400 text-gray-950 hover:bg-lime-500 font-semibold"
+                  className="w-full bg-[#a3e635] text-black hover:bg-[#93d225] font-semibold"
                 />
               </div>
             </div>
 
-            <div className="p-8 rounded-2xl bg-gray-900/50 border border-gray-800/60 hover:border-cyan-400/40 transition">
+            <div className="p-8 rounded-2xl bg-[#11141a] border border-white/10 hover:border-[#a3e635]/40 transition">
               <div className="text-xs uppercase tracking-[0.2em] text-gray-400">Care Plan</div>
               <h2 className="text-2xl font-semibold mt-3">Protect and improve</h2>
               <p className="text-gray-400 mt-3 leading-relaxed">
@@ -185,7 +183,7 @@ export default function Offer() {
                   "Support through stack changes",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3">
-                    <Check className="w-4 h-4 text-lime-400 mt-0.5" />
+                    <Check className="w-4 h-4 text-[#a3e635] mt-0.5" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -218,12 +216,12 @@ export default function Offer() {
                 items: ["Dashboards", "Client reports", "Alerts and QA", "Renewal reminders"],
               },
             ].map((track) => (
-              <div key={track.title} className="p-8 rounded-2xl bg-gray-900/30 border border-gray-800/60">
+              <div key={track.title} className="p-8 rounded-2xl bg-[#11141a] border border-white/10">
                 <h3 className="text-lg font-semibold">{track.title}</h3>
                 <ul className="mt-4 space-y-3 text-sm text-gray-400">
                   {track.items.map((item) => (
                     <li key={item} className="flex items-center gap-3">
-                      <span className="w-2 h-2 rounded-full bg-lime-400" />
+                      <span className="w-2 h-2 rounded-full bg-[#a3e635]" />
                       {item}
                     </li>
                   ))}
@@ -234,7 +232,7 @@ export default function Offer() {
         </section>
 
         <section className="container mx-auto px-4 mt-14">
-          <div className="max-w-5xl mx-auto p-10 rounded-3xl bg-gray-900/40 border border-gray-800/60">
+          <div className="max-w-5xl mx-auto p-10 rounded-3xl bg-[#11141a] border border-white/10">
             <h2 className="text-3xl md:text-4xl font-bold text-center">What happens after checkout</h2>
             <p className="text-gray-400 mt-4 leading-relaxed text-center max-w-3xl mx-auto">
               Pay first, then we execute. The process is fast and structured.
@@ -247,7 +245,7 @@ export default function Offer() {
                 { step: "3", title: "Build", description: "We implement and QA your selected track." },
                 { step: "4", title: "Handoff", description: "SOPs, walkthroughs, and team training delivered." },
               ].map((item) => (
-                <div key={item.step} className="p-6 rounded-2xl bg-gray-950/40 border border-gray-800/60">
+                <div key={item.step} className="p-6 rounded-2xl bg-[#0f1318] border border-white/10">
                   <div className="text-xs uppercase tracking-[0.2em] text-gray-500">Step {item.step}</div>
                   <div className="text-lg font-semibold mt-2">{item.title}</div>
                   <p className="text-sm text-gray-400 mt-2 leading-relaxed">{item.description}</p>
@@ -257,15 +255,15 @@ export default function Offer() {
 
             <div className="mt-10 flex flex-wrap justify-center gap-6 text-sm text-gray-400">
               <div className="flex items-center gap-2">
-                <Shield className="w-4 h-4 text-lime-400" />
+                <Shield className="w-4 h-4 text-[#a3e635]" />
                 <span>40-hour guarantee</span>
               </div>
               <div className="flex items-center gap-2">
-                <Clock className="w-4 h-4 text-lime-400" />
+                <Clock className="w-4 h-4 text-[#a3e635]" />
                 <span>Fast onboarding after payment</span>
               </div>
               <div className="flex items-center gap-2">
-                <ArrowRight className="w-4 h-4 text-lime-400" />
+                <ArrowRight className="w-4 h-4 text-[#a3e635]" />
                 <span>Self-serve checkout</span>
               </div>
             </div>
@@ -275,7 +273,7 @@ export default function Offer() {
         <section className="container mx-auto px-4 mt-10">
           <div className="max-w-6xl mx-auto flex justify-center">
             <Link href="/" onClick={() => trackEvent("cta_click", { cta: "offer_back_home", destination: "/" })}>
-              <Button variant="ghost" className="text-gray-400 hover:text-lime-400">
+              <Button variant="ghost" className="text-gray-400 hover:text-[#a3e635]">
                 Back to main site
               </Button>
             </Link>
