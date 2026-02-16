@@ -1,6 +1,6 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { initAnalytics, trackPageView } from "@/lib/analytics";
+import { initAnalytics, initAttribution, trackPageView } from "@/lib/analytics";
 import NotFound from "@/pages/NotFound";
 import { useEffect } from "react";
 import { Route, Switch, useLocation } from "wouter";
@@ -14,15 +14,18 @@ import Contact from "./pages/Contact";
 import Automation from "./pages/Automation";
 import AutomationPlaybook from "./pages/AutomationPlaybook";
 import Offer from "./pages/Offer";
+import Playbook from "./pages/Playbook";
 
 function AnalyticsListener() {
   const [location] = useLocation();
 
   useEffect(() => {
+    initAttribution();
     initAnalytics();
   }, []);
 
   useEffect(() => {
+    initAttribution();
     trackPageView(location);
   }, [location]);
 
@@ -38,6 +41,7 @@ function Router() {
       <Route path={"/blog/:slug"} component={BlogPost} />
       <Route path={"/automation"} component={Automation} />
       <Route path={"/automation/:slug"} component={AutomationPlaybook} />
+      <Route path={"/playbook"} component={Playbook} />
       <Route path={"/offer"} component={Offer} />
       <Route path={"/contact"} component={Contact} />
       <Route path={"/404"} component={NotFound} />

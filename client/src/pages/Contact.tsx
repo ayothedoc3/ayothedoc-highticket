@@ -16,7 +16,7 @@ import {
 } from "lucide-react";
 import { Link } from "wouter";
 import { toast } from "sonner";
-import { trackEvent } from "@/lib/analytics";
+import { getAttribution, trackEvent } from "@/lib/analytics";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -57,6 +57,11 @@ export default function Contact() {
 
     let leadCaptured = false;
     let emailSent = false;
+    const attribution = getAttribution();
+    const sourceChannel =
+      typeof attribution.utm_source === "string" && attribution.utm_source
+        ? attribution.utm_source
+        : "direct";
 
     try {
       try {
@@ -67,7 +72,7 @@ export default function Contact() {
             firstName: formData.firstName,
             email: formData.email,
             company: formData.company,
-            source: "contact",
+            source: `contact_${sourceChannel}`,
           }),
         });
 

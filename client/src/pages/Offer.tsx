@@ -44,6 +44,9 @@ export default function Offer() {
             <Link href="/blog" className="text-sm text-gray-400 hover:text-lime-400 transition-colors">
               Blog
             </Link>
+            <Link href="/playbook" className="text-sm text-gray-400 hover:text-lime-400 transition-colors">
+              Outbound Playbook
+            </Link>
             <Link href="/contact" className="text-sm text-gray-400 hover:text-lime-400 transition-colors">
               Contact
             </Link>

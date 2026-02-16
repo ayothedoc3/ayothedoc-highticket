@@ -33,6 +33,7 @@ export function CheckoutLink({
       cta,
       destination: isExternal ? "stripe" : effectiveHref,
       has_checkout: Boolean(normalizedHref),
+      entry_path: typeof window !== "undefined" ? window.location.pathname : undefined,
     });
   };
 

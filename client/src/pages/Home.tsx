@@ -87,6 +87,9 @@ function Header() {
           <Link href="/offer" className="text-muted-foreground hover:text-foreground transition-colors text-sm">
             Offer
           </Link>
+          <Link href="/playbook" className="text-muted-foreground hover:text-foreground transition-colors text-sm">
+            Outbound Playbook
+          </Link>
         </nav>
 
         <div className="flex items-center gap-3">
@@ -578,6 +581,9 @@ function Footer() {
             </Link>
             <Link href="/offer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Offer
+            </Link>
+            <Link href="/playbook" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              Outbound Playbook
             </Link>
             <Link href="/checklist" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Free Checklist

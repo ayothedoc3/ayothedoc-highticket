@@ -31,6 +31,7 @@ import {
 } from "lucide-react";
 import { Link } from "wouter";
 import { toast } from "sonner";
+import { getAttribution } from "@/lib/analytics";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -116,6 +117,12 @@ export default function Checklist() {
     setIsSubmitting(true);
 
     try {
+      const attribution = getAttribution();
+      const sourceChannel =
+        typeof attribution.utm_source === "string" && attribution.utm_source
+          ? attribution.utm_source
+          : "direct";
+
       // 1. Store lead in Airtable via API
       const apiResponse = await fetch('/api/leads', {
         method: 'POST',
@@ -124,7 +131,7 @@ export default function Checklist() {
           firstName: formData.firstName,
           email: formData.email,
           company: formData.company,
-          source: 'checklist'
+          source: `checklist_${sourceChannel}`
         })
       });
 
