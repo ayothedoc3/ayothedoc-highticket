@@ -19,7 +19,7 @@ export default function Offer() {
     const meta = document.querySelector('meta[name="description"]');
     meta?.setAttribute(
       "content",
-      "Productized automation for marketing and web/dev agencies. Buy Roadmap, Ops Sprint, or Care Plan with self-serve checkout."
+      "Productized automation for agencies. Install one workflow track in 10 business days, then measure outcomes over 30 days."
     );
   }, []);
 
@@ -74,17 +74,15 @@ export default function Offer() {
             </h1>
             <p className="text-xl text-gray-400 mt-6 leading-relaxed max-w-4xl mx-auto">
               We install systems for agencies:{" "}
-              {"lead intake -> onboarding -> delivery -> reporting -> retention"}.
-              Checkout is self-serve. Scope is fixed. Outcomes are measurable.
+              {"lead intake -> onboarding -> delivery -> reporting"}.
+              One workflow track, fixed scope, installed in 10 business days. Outcomes measured over the next 30 days.
+            </p>
+
+            <p className="text-sm text-gray-400 mt-4 max-w-4xl mx-auto">
+              Best fit: marketing, web/dev, recruiting, and consulting agencies doing $10k-$200k/mo with 3-25 staff.
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-              <CheckoutLink
-                href={sprintHref}
-                label="Buy Ops Sprint - from $7,500"
-                cta="hero_buy_sprint"
-                className="bg-[#a3e635] hover:bg-[#93d225] text-black font-bold text-lg px-8 py-6 rounded-full shadow-lg"
-              />
               <CheckoutLink
                 href={roadmapHref}
                 label="Buy Roadmap - $499"
@@ -92,7 +90,17 @@ export default function Offer() {
                 variant="outline"
                 className="border-[#a3e635]/40 text-[#a3e635] hover:bg-[#a3e635]/10 font-bold text-lg px-8 py-6 rounded-full"
               />
+              <CheckoutLink
+                href={sprintHref}
+                label="Buy Ops Sprint - from $7,500"
+                cta="hero_buy_sprint"
+                className="bg-[#a3e635] hover:bg-[#93d225] text-black font-bold text-lg px-8 py-6 rounded-full shadow-lg"
+              />
             </div>
+
+            <p className="text-xs text-gray-500 mt-4">
+              Roadmap is fully self-serve. Ops Sprint includes a quick fit check before kickoff.
+            </p>
 
             <p className="text-sm text-gray-500 mt-6">
               Need custom scope before checkout?{" "}
@@ -143,7 +151,7 @@ export default function Offer() {
               <div className="text-xs uppercase tracking-[0.2em] text-[#a3e635]">Most popular</div>
               <h2 className="text-2xl font-semibold mt-3">Agency Ops Sprint</h2>
               <p className="text-gray-300 mt-3 leading-relaxed">
-                We implement 4-6 automations end-to-end, train your team, and hand off SOPs.
+                We implement one workflow track end-to-end (typically 4-6 connected automations), train your team, and hand off SOPs.
               </p>
               <ul className="mt-6 space-y-3 text-sm text-gray-300">
                 {[
@@ -235,7 +243,7 @@ export default function Offer() {
           <div className="max-w-5xl mx-auto p-10 rounded-3xl bg-[#11141a] border border-white/10">
             <h2 className="text-3xl md:text-4xl font-bold text-center">What happens after checkout</h2>
             <p className="text-gray-400 mt-4 leading-relaxed text-center max-w-3xl mx-auto">
-              Pay first, then we execute. The process is fast and structured.
+              Roadmap starts immediately after payment. Ops Sprint includes a short fit check, then implementation.
             </p>
 
             <div className="mt-10 grid gap-6 md:grid-cols-4">
@@ -256,7 +264,7 @@ export default function Offer() {
             <div className="mt-10 flex flex-wrap justify-center gap-6 text-sm text-gray-400">
               <div className="flex items-center gap-2">
                 <Shield className="w-4 h-4 text-[#a3e635]" />
-                <span>40-hour guarantee</span>
+                <span>Baseline-backed guarantee</span>
               </div>
               <div className="flex items-center gap-2">
                 <Clock className="w-4 h-4 text-[#a3e635]" />
@@ -267,6 +275,10 @@ export default function Offer() {
                 <span>Self-serve checkout</span>
               </div>
             </div>
+
+            <p className="text-xs text-gray-500 mt-5 text-center max-w-3xl mx-auto">
+              40+ hours are measured against kickoff baseline (time estimates + activity logs), then verified with post-install tool logs and task volume over 30 days.
+            </p>
           </div>
         </section>
 

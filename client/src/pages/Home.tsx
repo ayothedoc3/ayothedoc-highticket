@@ -61,32 +61,30 @@ function Header() {
         </Link>
 
         <nav className="hidden md:flex items-center gap-8">
-          <a href="#market-shift" className="text-sm text-gray-400 hover:text-white transition-colors">
-            Market Shift
+          <Link href="/offer" className="text-sm text-gray-400 hover:text-white transition-colors">
+            Offer
+          </Link>
+          <a href="#proof" className="text-sm text-gray-400 hover:text-white transition-colors">
+            Proof
           </a>
           <a href="#build-path" className="text-sm text-gray-400 hover:text-white transition-colors">
             Build Path
           </a>
-          <a href="#proof" className="text-sm text-gray-400 hover:text-white transition-colors">
-            Proof
-          </a>
           <Link href="/playbook" className="text-sm text-gray-400 hover:text-white transition-colors">
             Outbound Playbook
           </Link>
+          <a href="#market-shift" className="text-sm text-gray-400 hover:text-white transition-colors">
+            Market Shift
+          </a>
+          <Link href="/contact" className="text-sm text-gray-400 hover:text-white transition-colors">
+            Contact
+          </Link>
         </nav>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center">
           <Link href="/offer">
             <Button className="bg-[#a3e635] hover:bg-[#93d225] text-black font-semibold rounded-full px-5">
               View Offer
-            </Button>
-          </Link>
-          <Link href="/contact" className="hidden sm:inline-flex">
-            <Button
-              variant="outline"
-              className="border-[#a3e635]/40 text-[#a3e635] hover:bg-[#a3e635]/10 font-semibold rounded-full px-5"
-            >
-              Contact
             </Button>
           </Link>
         </div>
@@ -133,16 +131,20 @@ function HeroSection() {
             </motion.h1>
 
             <motion.p variants={fadeInUp} className="text-lg md:text-xl text-gray-300 mt-6 max-w-3xl leading-relaxed">
-              We install one system your agency can run on: lead intake to onboarding to delivery to reporting.
-              Fixed scope. Self-serve checkout. Measurable outcomes in 30 days.
+              We install one end-to-end workflow track your agency runs on: lead intake to onboarding to delivery to reporting.
+              Installed in 10 business days. Outcomes measured over the next 30 days. Fixed scope, done-for-you.
+            </motion.p>
+
+            <motion.p variants={fadeInUp} className="text-sm text-gray-400 mt-4 max-w-3xl leading-relaxed">
+              Best fit: marketing, web/dev, recruiting, and consulting agencies doing $10k-$200k/mo with 3-25 staff.
             </motion.p>
 
             <motion.div variants={fadeInUp} className="mt-8 grid sm:grid-cols-2 gap-3 max-w-3xl">
               {[
-                "Form to CRM to follow-up in under 60s",
-                "Payment to kickoff to project setup",
-                "Weekly client report generation",
-                "40+ hours recovered or we keep working",
+                "Form -> CRM -> first follow-up in under 60 seconds",
+                "Payment -> kickoff -> project setup automatically",
+                "Weekly client reporting generated and sent",
+                "One workflow track fully installed end-to-end",
               ].map((line) => (
                 <div key={line} className="p-3 rounded-lg border border-white/10 bg-white/5 text-sm text-gray-300 flex items-start gap-2">
                   <Check className="h-4 w-4 text-[#a3e635] mt-0.5" />
@@ -185,7 +187,7 @@ function HeroSection() {
             </div>
 
             <div className="mt-6 p-4 rounded-lg border border-[#a3e635]/25 bg-[#a3e635]/10 text-sm text-gray-200">
-              Current buy path: Roadmap ($499) → Ops Sprint ($7,500+) → Care ($1,500+/mo)
+              Current buy path: Roadmap ($499) &rarr; Ops Sprint ($7,500+) &rarr; Care ($1,500+/mo)
             </div>
 
             <div className="absolute -top-3 -right-3 rounded-md bg-[#141922] border border-white/15 px-3 py-1 text-xs text-gray-300">
@@ -308,7 +310,7 @@ function BuildPathSection() {
                   step: "02",
                   title: "Ops Sprint",
                   subtitle: "10 business days",
-                  desc: "Install the workflow end-to-end and capture proof metrics.",
+                  desc: "Install one workflow track end-to-end, then measure outcomes over the next 30 days.",
                 },
                 {
                   step: "03",
@@ -331,7 +333,7 @@ function BuildPathSection() {
             <motion.div variants={fadeInUp} className="p-6 rounded-xl border border-white/10 bg-[#11141a]">
               <div className="text-xs uppercase tracking-wide text-gray-400">Deliverables snapshot</div>
               <h3 className="text-xl font-semibold mt-2 text-white" style={{ fontFamily: "var(--font-heading)" }}>
-                One track fully installed
+                One workflow track fully installed
               </h3>
 
               <div className="mt-4 space-y-3 text-sm text-gray-300">
@@ -350,6 +352,10 @@ function BuildPathSection() {
 
               <div className="mt-6 p-4 rounded-lg border border-[#a3e635]/25 bg-[#a3e635]/10 text-sm text-gray-200">
                 Start where confidence is highest: Roadmap first or Sprint direct.
+              </div>
+
+              <div className="mt-4 p-4 rounded-lg border border-white/10 bg-[#0f1318] text-xs text-gray-300 leading-relaxed">
+                Guarantee measurement rule: baseline is captured during kickoff (time estimates + activity logs). We measure post-install reduction in repetitive admin work over 30 days using tool logs and task volume.
               </div>
             </motion.div>
           </div>
@@ -392,7 +398,7 @@ function ProofSection() {
               {
                 title: "Time recovered",
                 metric: "40h+",
-                detail: "Guaranteed in 30 days or we continue free.",
+                detail: "Measured against kickoff baseline over a 30-day window.",
               },
             ].map((card) => (
               <motion.div key={card.title} variants={fadeInUp} className="p-6 rounded-xl border border-white/10 bg-[#0f1318]">
@@ -405,11 +411,34 @@ function ProofSection() {
             ))}
           </div>
 
-          <motion.div variants={fadeInUp} className="mt-7 p-6 rounded-xl border border-white/10 bg-[#0f1318]">
-            <div className="text-sm text-gray-300 leading-relaxed">
-              Need verification before buying? We share sanitized workflow maps, implementation checklists, and KPI baselines during Roadmap kickoff.
-            </div>
-          </motion.div>
+          <div className="mt-7 grid md:grid-cols-2 gap-5">
+            <motion.div variants={fadeInUp} className="p-6 rounded-xl border border-white/10 bg-[#0f1318]">
+              <div className="text-sm uppercase tracking-wide text-gray-400">Proof artifacts</div>
+              <ul className="mt-4 space-y-3 text-sm text-gray-300">
+                {[
+                  "Sanitized workflow map screenshots",
+                  "Before/after KPI table (baseline vs post-install)",
+                  "Short Loom clips of the automation running",
+                  "Tool stack used per track (HubSpot, GHL, Slack, Notion, n8n)",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-2">
+                    <Check className="h-4 w-4 text-[#a3e635] mt-0.5" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+
+            <motion.div variants={fadeInUp} className="p-6 rounded-xl border border-white/10 bg-[#0f1318]">
+              <div className="text-sm uppercase tracking-wide text-gray-400">40-hour guarantee</div>
+              <p className="text-sm text-gray-300 mt-4 leading-relaxed">
+                Recover 40+ hours in 30 days based on the kickoff baseline audit, or we keep working free until you do.
+              </p>
+              <p className="text-sm text-gray-400 mt-3 leading-relaxed">
+                Scope applies to repetitive admin work tied to the selected workflow track.
+              </p>
+            </motion.div>
+          </div>
         </motion.div>
       </div>
     </section>
@@ -436,7 +465,7 @@ function FinalCTASection() {
           </motion.h2>
 
           <motion.p variants={fadeInUp} className="text-lg text-gray-300 mt-5 max-w-2xl mx-auto">
-            Start with Roadmap ($499) or buy the Ops Sprint ($7,500+) directly. If we do not recover 40+ hours in 30 days, we keep working for free.
+            Installed in 10 business days. Outcomes measured over 30 days. Recover 40+ hours based on kickoff baseline, or we keep working free until you do.
           </motion.p>
 
           <motion.div variants={fadeInUp} className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
@@ -459,7 +488,7 @@ function FinalCTASection() {
           <motion.div variants={fadeInUp} className="mt-8 flex flex-wrap justify-center gap-6 text-sm text-gray-300">
             <div className="flex items-center gap-2">
               <Shield className="h-4 w-4 text-[#a3e635]" />
-              <span>40-hour guarantee</span>
+              <span>Baseline-backed guarantee</span>
             </div>
             <div className="flex items-center gap-2">
               <Clock className="h-4 w-4 text-[#a3e635]" />
