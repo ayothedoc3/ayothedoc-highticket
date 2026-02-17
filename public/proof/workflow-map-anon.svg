@@ -1,0 +1,51 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="700" fill="#0F1318"/>
+  <rect x="50" y="50" width="1100" height="600" rx="18" fill="#11141A" stroke="#2A313B"/>
+  <text x="90" y="110" fill="#A3E635" font-family="Arial, sans-serif" font-size="28" font-weight="700">Anonymized Workflow Map</text>
+  <text x="90" y="145" fill="#93A1B2" font-family="Arial, sans-serif" font-size="18">Lead Intake → Qualification → Onboarding → Delivery → Reporting</text>
+
+  <rect x="120" y="220" width="180" height="110" rx="12" fill="#151B23" stroke="#303A47"/>
+  <rect x="350" y="220" width="180" height="110" rx="12" fill="#151B23" stroke="#303A47"/>
+  <rect x="580" y="220" width="180" height="110" rx="12" fill="#151B23" stroke="#303A47"/>
+  <rect x="810" y="220" width="180" height="110" rx="12" fill="#151B23" stroke="#303A47"/>
+
+  <rect x="140" y="250" width="120" height="14" rx="7" fill="#2D3745"/>
+  <rect x="140" y="274" width="95" height="10" rx="5" fill="#25303D"/>
+  <rect x="140" y="291" width="110" height="10" rx="5" fill="#25303D"/>
+
+  <rect x="370" y="250" width="120" height="14" rx="7" fill="#2D3745"/>
+  <rect x="370" y="274" width="95" height="10" rx="5" fill="#25303D"/>
+  <rect x="370" y="291" width="110" height="10" rx="5" fill="#25303D"/>
+
+  <rect x="600" y="250" width="120" height="14" rx="7" fill="#2D3745"/>
+  <rect x="600" y="274" width="95" height="10" rx="5" fill="#25303D"/>
+  <rect x="600" y="291" width="110" height="10" rx="5" fill="#25303D"/>
+
+  <rect x="830" y="250" width="120" height="14" rx="7" fill="#2D3745"/>
+  <rect x="830" y="274" width="95" height="10" rx="5" fill="#25303D"/>
+  <rect x="830" y="291" width="110" height="10" rx="5" fill="#25303D"/>
+
+  <line x1="300" y1="275" x2="350" y2="275" stroke="#A3E635" stroke-width="4"/>
+  <line x1="530" y1="275" x2="580" y2="275" stroke="#A3E635" stroke-width="4"/>
+  <line x1="760" y1="275" x2="810" y2="275" stroke="#A3E635" stroke-width="4"/>
+
+  <circle cx="300" cy="275" r="6" fill="#A3E635"/>
+  <circle cx="350" cy="275" r="6" fill="#A3E635"/>
+  <circle cx="530" cy="275" r="6" fill="#A3E635"/>
+  <circle cx="580" cy="275" r="6" fill="#A3E635"/>
+  <circle cx="760" cy="275" r="6" fill="#A3E635"/>
+  <circle cx="810" cy="275" r="6" fill="#A3E635"/>
+
+  <rect x="120" y="400" width="870" height="190" rx="12" fill="#0F1318" stroke="#2A313B"/>
+  <rect x="150" y="438" width="360" height="12" rx="6" fill="#2D3745"/>
+  <rect x="150" y="460" width="300" height="10" rx="5" fill="#25303D"/>
+  <rect x="150" y="478" width="330" height="10" rx="5" fill="#25303D"/>
+  <rect x="150" y="496" width="280" height="10" rx="5" fill="#25303D"/>
+  <rect x="150" y="514" width="320" height="10" rx="5" fill="#25303D"/>
+
+  <rect x="560" y="438" width="180" height="38" rx="10" fill="#1D2632" stroke="#334154"/>
+  <text x="590" y="463" fill="#C9D5E2" font-family="Arial, sans-serif" font-size="14">SLA &lt; 60s</text>
+
+  <rect x="770" y="438" width="180" height="38" rx="10" fill="#1D2632" stroke="#334154"/>
+  <text x="800" y="463" fill="#C9D5E2" font-family="Arial, sans-serif" font-size="14">Track: Lead Ops</text>
+</svg>

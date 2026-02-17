@@ -1,0 +1,48 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="700" fill="#0F1318"/>
+  <rect x="50" y="50" width="1100" height="600" rx="18" fill="#11141A" stroke="#2A313B"/>
+  <text x="90" y="110" fill="#A3E635" font-family="Arial, sans-serif" font-size="28" font-weight="700">Anonymized Activity Log</text>
+  <text x="90" y="145" fill="#93A1B2" font-family="Arial, sans-serif" font-size="18">Execution Trace (trigger, action, output)</text>
+
+  <rect x="90" y="180" width="1020" height="430" rx="12" fill="#0F1318" stroke="#2A313B"/>
+
+  <rect x="90" y="180" width="1020" height="52" rx="12" fill="#151B23"/>
+  <text x="130" y="213" fill="#C9D5E2" font-family="Arial, sans-serif" font-size="15" font-weight="700">Time</text>
+  <text x="330" y="213" fill="#C9D5E2" font-family="Arial, sans-serif" font-size="15" font-weight="700">Trigger</text>
+  <text x="590" y="213" fill="#C9D5E2" font-family="Arial, sans-serif" font-size="15" font-weight="700">Action</text>
+  <text x="900" y="213" fill="#C9D5E2" font-family="Arial, sans-serif" font-size="15" font-weight="700">Status</text>
+
+  <g fill="#25303D">
+    <rect x="120" y="260" width="150" height="12" rx="6"/>
+    <rect x="320" y="260" width="220" height="12" rx="6"/>
+    <rect x="580" y="260" width="250" height="12" rx="6"/>
+    <rect x="120" y="312" width="150" height="12" rx="6"/>
+    <rect x="320" y="312" width="220" height="12" rx="6"/>
+    <rect x="580" y="312" width="250" height="12" rx="6"/>
+    <rect x="120" y="364" width="150" height="12" rx="6"/>
+    <rect x="320" y="364" width="220" height="12" rx="6"/>
+    <rect x="580" y="364" width="250" height="12" rx="6"/>
+    <rect x="120" y="416" width="150" height="12" rx="6"/>
+    <rect x="320" y="416" width="220" height="12" rx="6"/>
+    <rect x="580" y="416" width="250" height="12" rx="6"/>
+    <rect x="120" y="468" width="150" height="12" rx="6"/>
+    <rect x="320" y="468" width="220" height="12" rx="6"/>
+    <rect x="580" y="468" width="250" height="12" rx="6"/>
+    <rect x="120" y="520" width="150" height="12" rx="6"/>
+    <rect x="320" y="520" width="220" height="12" rx="6"/>
+    <rect x="580" y="520" width="250" height="12" rx="6"/>
+  </g>
+
+  <rect x="900" y="248" width="130" height="28" rx="8" fill="#1C2C1A" stroke="#2D4B27"/>
+  <text x="942" y="267" fill="#BCEB6A" font-family="Arial, sans-serif" font-size="13">SUCCESS</text>
+  <rect x="900" y="300" width="130" height="28" rx="8" fill="#1C2C1A" stroke="#2D4B27"/>
+  <text x="942" y="319" fill="#BCEB6A" font-family="Arial, sans-serif" font-size="13">SUCCESS</text>
+  <rect x="900" y="352" width="130" height="28" rx="8" fill="#1C2C1A" stroke="#2D4B27"/>
+  <text x="942" y="371" fill="#BCEB6A" font-family="Arial, sans-serif" font-size="13">SUCCESS</text>
+  <rect x="900" y="404" width="130" height="28" rx="8" fill="#1C2C1A" stroke="#2D4B27"/>
+  <text x="942" y="423" fill="#BCEB6A" font-family="Arial, sans-serif" font-size="13">SUCCESS</text>
+  <rect x="900" y="456" width="130" height="28" rx="8" fill="#1C2C1A" stroke="#2D4B27"/>
+  <text x="942" y="475" fill="#BCEB6A" font-family="Arial, sans-serif" font-size="13">SUCCESS</text>
+  <rect x="900" y="508" width="130" height="28" rx="8" fill="#1C2C1A" stroke="#2D4B27"/>
+  <text x="942" y="527" fill="#BCEB6A" font-family="Arial, sans-serif" font-size="13">SUCCESS</text>
+</svg>

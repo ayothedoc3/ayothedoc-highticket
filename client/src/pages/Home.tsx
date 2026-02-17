@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { ProofBlock } from "@/components/ProofBlock";
 import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { ArrowRight, Check, ChevronDown, Clock, Shield, X, Zap } from "lucide-react";
@@ -411,34 +412,7 @@ function ProofSection() {
             ))}
           </div>
 
-          <div className="mt-7 grid md:grid-cols-2 gap-5">
-            <motion.div variants={fadeInUp} className="p-6 rounded-xl border border-white/10 bg-[#0f1318]">
-              <div className="text-sm uppercase tracking-wide text-gray-400">Proof artifacts</div>
-              <ul className="mt-4 space-y-3 text-sm text-gray-300">
-                {[
-                  "Sanitized workflow map screenshots",
-                  "Before/after KPI table (baseline vs post-install)",
-                  "Short Loom clips of the automation running",
-                  "Tool stack used per track (HubSpot, GHL, Slack, Notion, n8n)",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-2">
-                    <Check className="h-4 w-4 text-[#a3e635] mt-0.5" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-
-            <motion.div variants={fadeInUp} className="p-6 rounded-xl border border-white/10 bg-[#0f1318]">
-              <div className="text-sm uppercase tracking-wide text-gray-400">40-hour guarantee</div>
-              <p className="text-sm text-gray-300 mt-4 leading-relaxed">
-                Recover 40+ hours in 30 days based on the kickoff baseline audit, or we keep working free until you do.
-              </p>
-              <p className="text-sm text-gray-400 mt-3 leading-relaxed">
-                Scope applies to repetitive admin work tied to the selected workflow track.
-              </p>
-            </motion.div>
-          </div>
+          <ProofBlock />
         </motion.div>
       </div>
     </section>
