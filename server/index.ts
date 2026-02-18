@@ -1,6 +1,7 @@
 import express from "express";
 import { createServer } from "http";
 import path from "path";
+import fs from "fs";
 
 // Import routes
 import blogRouter from "./routes/blog.js";
@@ -51,6 +52,68 @@ async function startServer() {
     };
 
     res.send(`window.__AY_CONFIG__ = ${JSON.stringify(config)};`);
+  });
+
+  // robots.txt
+  app.get("/robots.txt", (_req, res) => {
+    res.setHeader("Content-Type", "text/plain");
+    res.send(`User-agent: *
+Allow: /
+Sitemap: https://ayothedoc.com/sitemap.xml
+`);
+  });
+
+  // sitemap.xml - dynamically built from blog posts + automation playbooks
+  app.get("/sitemap.xml", async (_req, res) => {
+    const base = "https://ayothedoc.com";
+    const today = new Date().toISOString().split("T")[0];
+
+    // Static pages
+    const staticPages = [
+      { loc: "/", priority: "1.0", changefreq: "weekly" },
+      { loc: "/blog", priority: "0.8", changefreq: "weekly" },
+      { loc: "/automation", priority: "0.8", changefreq: "weekly" },
+      { loc: "/checklist", priority: "0.7", changefreq: "monthly" },
+      { loc: "/offer", priority: "0.9", changefreq: "monthly" },
+      { loc: "/playbook", priority: "0.7", changefreq: "monthly" },
+      { loc: "/contact", priority: "0.6", changefreq: "monthly" },
+    ];
+
+    // Blog posts
+    const blogUrls: { loc: string; priority: string; changefreq: string }[] = [];
+    const postsDir = path.join(process.cwd(), "content", "posts");
+    if (fs.existsSync(postsDir)) {
+      const files = fs.readdirSync(postsDir).filter(f => f.endsWith(".md") || f.endsWith(".mdx"));
+      for (const file of files) {
+        const slug = file.replace(/\.mdx?$/, "");
+        blogUrls.push({ loc: `/blog/${slug}`, priority: "0.7", changefreq: "monthly" });
+      }
+    }
+
+    // Automation playbooks
+    const autoUrls: { loc: string; priority: string; changefreq: string }[] = [];
+    const pagesDir = path.join(process.cwd(), "data", "programmatic-seo", "pages");
+    if (fs.existsSync(pagesDir)) {
+      const files = fs.readdirSync(pagesDir).filter(f => f.endsWith(".json"));
+      for (const file of files) {
+        const slug = file.replace(/\.json$/, "");
+        autoUrls.push({ loc: `/automation/${slug}`, priority: "0.7", changefreq: "monthly" });
+      }
+    }
+
+    const allUrls = [...staticPages, ...blogUrls, ...autoUrls];
+    const urlEntries = allUrls.map(u => `  <url>
+    <loc>${base}${u.loc}</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>${u.changefreq}</changefreq>
+    <priority>${u.priority}</priority>
+  </url>`).join("\n");
+
+    res.setHeader("Content-Type", "application/xml");
+    res.send(`<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${urlEntries}
+</urlset>`);
   });
 
   // Health check endpoint

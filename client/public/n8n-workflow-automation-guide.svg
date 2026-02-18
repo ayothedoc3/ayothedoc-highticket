@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d0d0d"/>
+      <stop offset="100%" style="stop-color:#1a1a2e"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="480" y="180" width="240" height="100" rx="16" fill="#a3e635" opacity="0.2" stroke="#a3e635" stroke-width="2"/>
+  <text x="600" y="238" text-anchor="middle" fill="#a3e635" font-family="sans-serif" font-size="22" font-weight="bold">n8n</text>
+  <rect x="120" y="370" width="200" height="80" rx="12" fill="none" stroke="#a3e635" stroke-width="1.5" opacity="0.5"/>
+  <text x="220" y="416" text-anchor="middle" fill="#999" font-family="sans-serif" font-size="16">CRM</text>
+  <rect x="380" y="370" width="200" height="80" rx="12" fill="none" stroke="#a3e635" stroke-width="1.5" opacity="0.5"/>
+  <text x="480" y="416" text-anchor="middle" fill="#999" font-family="sans-serif" font-size="16">Email</text>
+  <rect x="640" y="370" width="200" height="80" rx="12" fill="none" stroke="#a3e635" stroke-width="1.5" opacity="0.5"/>
+  <text x="740" y="416" text-anchor="middle" fill="#999" font-family="sans-serif" font-size="16">Sheets</text>
+  <rect x="900" y="370" width="200" height="80" rx="12" fill="none" stroke="#a3e635" stroke-width="1.5" opacity="0.5"/>
+  <text x="1000" y="416" text-anchor="middle" fill="#999" font-family="sans-serif" font-size="16">Slack</text>
+  <line x1="500" y1="280" x2="220" y2="370" stroke="#a3e635" stroke-width="1.5" opacity="0.3"/>
+  <line x1="550" y1="280" x2="480" y2="370" stroke="#a3e635" stroke-width="1.5" opacity="0.3"/>
+  <line x1="650" y1="280" x2="740" y2="370" stroke="#a3e635" stroke-width="1.5" opacity="0.3"/>
+  <line x1="700" y1="280" x2="1000" y2="370" stroke="#a3e635" stroke-width="1.5" opacity="0.3"/>
+  <text x="600" y="540" text-anchor="middle" fill="#ffffff" font-family="sans-serif" font-size="28" font-weight="bold" opacity="0.8">n8n Workflow Automation Guide</text>
+</svg>
